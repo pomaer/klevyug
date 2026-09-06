@@ -26,9 +26,21 @@
       <span class="site-logo__name">КлёвЮг</span>
     </a>
     <nav class="site-nav" aria-label="Основное меню">
-      <a href="map.html">Карта</a>
-      <a href="index.html#tutorial">Туториал</a>
-      <a href="about.html" aria-current="page">Как устроено</a>
+      <button
+        type="button"
+        class="site-menu-btn"
+        id="site-menu-btn"
+        aria-expanded="false"
+        aria-controls="site-nav-panel"
+        aria-label="Открыть меню"
+      >
+        <span class="site-menu-btn__bars" aria-hidden="true"></span>
+      </button>
+      <div class="site-nav__panel" id="site-nav-panel">
+        <a href="map.html">Карта</a>
+        <a href="index.html#tutorial">Туториал</a>
+        <a href="about.html" aria-current="page">Как устроено</a>
+      </div>
       <a class="btn btn--primary" href="map.html">Открыть карту</a>
     </nav>
   </header>
@@ -86,10 +98,11 @@
       <a href="index.html#tutorial">КлёвЮг → Туториал</a>.
     </p>
 
-    <h2 id="privacy">Локальная версия</h2>
+    <h2 id="privacy">В интернете</h2>
     <p>
-      Сейчас сайт открывается с вашего компьютера и в интернет не опубликован.
-      Когда решите выложить — скажите агенту «ок» на деплой.
+      Сайт опубликован:
+      <a href="https://pomaer.github.io/klevyug/" translate="no">pomaer.github.io/klevyug</a>.
+      Карта открывается с телефона и компьютера.
     </p>
 
     <div class="cta-inline" style="margin-top: 32px">
@@ -102,7 +115,7 @@
     <div class="site-footer__inner">
       <div>
         <strong translate="no">КлёвЮг</strong><br />
-        Локальная версия сайта
+        Карта рыбалки Юга России
       </div>
       <div>
         <a href="map.html">Карта</a>
@@ -111,5 +124,26 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var btn = document.getElementById("site-menu-btn");
+      var panel = document.getElementById("site-nav-panel");
+      if (!btn || !panel) return;
+      function setOpen(open) {
+        document.body.classList.toggle("nav-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(!document.body.classList.contains("nav-open"));
+      });
+      panel.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { setOpen(false); });
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>

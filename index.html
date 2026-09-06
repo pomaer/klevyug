@@ -26,9 +26,21 @@
       <span class="site-logo__name">КлёвЮг</span>
     </a>
     <nav class="site-nav" aria-label="Основное меню">
-      <a href="map.html">Карта</a>
-      <a href="#tutorial">Туториал</a>
-      <a href="about.html">Как устроено</a>
+      <button
+        type="button"
+        class="site-menu-btn"
+        id="site-menu-btn"
+        aria-expanded="false"
+        aria-controls="site-nav-panel"
+        aria-label="Открыть меню"
+      >
+        <span class="site-menu-btn__bars" aria-hidden="true"></span>
+      </button>
+      <div class="site-nav__panel" id="site-nav-panel">
+        <a href="map.html">Карта</a>
+        <a href="#tutorial">Туториал</a>
+        <a href="about.html">Как устроено</a>
+      </div>
       <a class="btn btn--primary" href="map.html">Открыть карту</a>
     </nav>
   </header>
@@ -59,7 +71,7 @@
       </p>
       <ul class="facts">
         <li>
-          <strong>1159</strong>
+          <strong>1166</strong>
           <span>мест: платные пруды и бесплатные точки</span>
         </li>
         <li>
@@ -67,7 +79,7 @@
           <span>бесплатных берегов и водоёмов общего пользования</span>
         </li>
         <li>
-          <strong>311</strong>
+          <strong>331</strong>
           <span>мест с оценкой по проверенным TG-отчётам</span>
         </li>
       </ul>
@@ -211,8 +223,9 @@
           <details>
             <summary>Сайт уже в интернете?</summary>
             <p>
-              Сейчас это локальная версия в папке <span translate="no">site</span> на вашем компьютере.
-              Когда будете готовы выложить в сеть — скажите агенту «ок» на деплой.
+              Да. Открывайте
+              <a href="https://pomaer.github.io/klevyug/" translate="no">pomaer.github.io/klevyug</a>
+              — карта и главная доступны с телефона и компьютера.
             </p>
           </details>
         </div>
@@ -228,7 +241,6 @@
         <a class="btn btn--primary btn--lg" href="map.html">Открыть КлёвЮг</a>
         <a class="btn btn--ghost btn--lg" href="#tutorial">Ещё раз туториал</a>
       </div>
-      <p class="local-badge" style="margin-top: 28px">Локальная версия · без публикации</p>
     </section>
   </main>
 
@@ -247,5 +259,26 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var btn = document.getElementById("site-menu-btn");
+      var panel = document.getElementById("site-nav-panel");
+      if (!btn || !panel) return;
+      function setOpen(open) {
+        document.body.classList.toggle("nav-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(!document.body.classList.contains("nav-open"));
+      });
+      panel.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { setOpen(false); });
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>

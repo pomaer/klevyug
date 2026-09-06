@@ -714,8 +714,176 @@ a:hover {
   font-weight: 700;
 }
 
-@media (max-width: 560px) {
-  .site-nav a:not(.btn) {
+.site-menu-btn {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.site-menu-btn:hover {
+  background: #fff;
+}
+
+.site-menu-btn:focus-visible {
+  outline: 3px solid var(--water-bright);
+  outline-offset: 2px;
+}
+
+.site-menu-btn__bars {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+}
+
+.site-nav__panel {
+  display: contents;
+}
+
+#tutorial,
+.section__title,
+.prose h2 {
+  scroll-margin-top: calc(72px + var(--safe-top));
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    gap: 10px;
+    padding: calc(10px + var(--safe-top)) calc(14px + var(--safe-right)) 10px calc(14px + var(--safe-left));
+  }
+
+  .site-menu-btn {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: relative;
+    gap: 8px;
+  }
+
+  .site-nav__panel {
     display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: max(12px, var(--safe-left));
+    right: max(12px, var(--safe-right));
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 30;
+  }
+
+  body.nav-open .site-nav__panel {
+    display: flex;
+  }
+
+  .site-nav__panel a {
+    padding: 14px 14px;
+    min-height: 44px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+
+  .site-nav > .btn--primary {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    min-height: 44px;
+  }
+
+  .hero {
+    min-height: auto;
+    justify-content: flex-end;
+    padding:
+      calc(88px + var(--safe-top))
+      calc(16px + var(--safe-right))
+      calc(36px + var(--safe-bottom))
+      calc(16px + var(--safe-left));
+  }
+
+  .hero__brand {
+    font-size: clamp(2.4rem, 14vw, 3.4rem);
+    margin-bottom: 14px;
+  }
+
+  .hero__lead {
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+    max-width: none;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .section {
+    padding: 48px calc(16px + var(--safe-right)) 48px calc(16px + var(--safe-left));
+  }
+
+  .section__title {
+    font-size: clamp(1.35rem, 6vw, 1.7rem);
+  }
+
+  .section__lead,
+  .scene p,
+  .legend-item p,
+  .keep p,
+  .faq p,
+  .step p {
+    font-size: 1rem;
+  }
+
+  .facts {
+    gap: 14px;
+  }
+
+  .facts strong {
+    font-size: 1.7rem;
+  }
+
+  .cta-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-inline .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-logo__name {
+    font-size: 14px;
   }
 }
