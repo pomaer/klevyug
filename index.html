@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071b24" />
+  <meta
+    name="description"
+    content="КлёвЮг — карта платных прудов и бесплатных берегов Юга России: Кубань, Адыгея, Ставрополье, Калмыкия, Астрахань. Фильтры, отзывы рыбаков, маршрут."
+  />
+  <title>КлёвЮг — карта рыбалки Юга</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=Unbounded:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+
+  <header class="site-header">
+    <a class="site-logo" href="index.html" translate="no">
+      <span class="site-logo__mark" aria-hidden="true"></span>
+      <span class="site-logo__name">КлёвЮг</span>
+    </a>
+    <nav class="site-nav" aria-label="Основное меню">
+      <a href="map.html">Карта</a>
+      <a href="#tutorial">Туториал</a>
+      <a href="about.html">Как устроено</a>
+      <a class="btn btn--primary" href="map.html">Открыть карту</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-brand">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__map" aria-hidden="true"></div>
+      <div class="hero__wave" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <h1 id="hero-brand" class="hero__brand" translate="no">Клёв<span>Юг</span></h1>
+        <p class="hero__lead">
+          Карта прудов и бесплатных берегов от Кубани до Астрахани —
+          с фильтрами, отчётами рыбаков и маршрутом до места.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--gold btn--lg" href="map.html">Открыть карту</a>
+          <a class="btn btn--on-dark btn--lg" href="#tutorial">Как пользоваться</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="facts-title">
+      <h2 id="facts-title" class="section__title">Что уже на карте</h2>
+      <p class="section__lead">
+        Цифры из текущей базы сервиса. Отзывы попадают только если в сообщении
+        есть название именно этого пруда.
+      </p>
+      <ul class="facts">
+        <li>
+          <strong>1159</strong>
+          <span>мест: платные пруды и бесплатные точки</span>
+        </li>
+        <li>
+          <strong>312</strong>
+          <span>бесплатных берегов и водоёмов общего пользования</span>
+        </li>
+        <li>
+          <strong>311</strong>
+          <span>мест с оценкой по проверенным TG-отчётам</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="band" aria-labelledby="why-title">
+      <div class="section scene">
+        <h2 id="why-title" class="section__title">Когда открываете карту перед выездом</h2>
+        <p>
+          Нужно быстро понять: платно или бесплатно, какая рыба, сколько стоит,
+          есть ли свежие отчёты и как доехать. Вместо десяти вкладок и чатов —
+          одна карта Юга.
+        </p>
+        <p>
+          Регионы сейчас: Краснодарский край, Адыгея, Ставрополье, Калмыкия,
+          Астрахань (плюс отдельные точки КБР/КЧР). Сервис бесплатный.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="icons-title">
+      <h2 id="icons-title" class="section__title">Как читать значки</h2>
+      <p class="section__lead">Цвет и размер помогают сравнить места до клика.</p>
+      <div class="legend-row">
+        <div class="legend-item">
+          <span class="legend-item__icon legend-item__icon--circle" aria-hidden="true"></span>
+          <div>
+            <h3>Крупный цветной кружок</h3>
+            <p>
+              Платный или спортивный пруд. Зеленее и крупнее — в карточке больше сведений.
+              Краснее — данных меньше. Это не прогноз клёва.
+            </p>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-item__icon legend-item__icon--small" aria-hidden="true"></span>
+          <div>
+            <h3>Меньший кружок</h3>
+            <p>
+              Бесплатное место. Цвет тот же рейтинг, размер меньше — чтобы сразу
+              отличать от платников.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--deep" id="tutorial" aria-labelledby="tutorial-title">
+      <div class="section">
+        <h2 id="tutorial-title" class="section__title">Туториал: 4 шага до выезда</h2>
+        <p class="section__lead">
+          Откройте карту на телефоне или ноутбуке и пройдите шаги один раз —
+          дальше будете делать это за минуту.
+        </p>
+        <div class="steps">
+          <article class="step">
+            <h3>Фильтры справа сверху</h3>
+            <p>
+              Нажмите «Фильтры». Отметьте галочками тип (платный / бесплатный),
+              рыбу, класс. Можно несколько пунктов сразу. Пустой список = показаны все места.
+            </p>
+          </article>
+          <article class="step">
+            <h3>Поиск по названию</h3>
+            <p>
+              В строке «Найти место…» введите пруд или посёлок. Выберите результат —
+              карта приблизится к точке.
+            </p>
+          </article>
+          <article class="step">
+            <h3>Карточка места</h3>
+            <p>
+              Клик по кружку: цена, рыба, телефон, сайт, оценка по отзывам,
+              цитаты из Telegram, кнопки «поделиться» и маршрут в Яндекс.Картах.
+            </p>
+          </article>
+          <article class="step">
+            <h3>Рейтинг и локация</h3>
+            <p>
+              Внизу слева переключите «по данным карточки» / «по отзывам рыбаков».
+              Для маршрута разрешите GPS или нажмите «Указать на карте» свою точку старта.
+            </p>
+          </article>
+        </div>
+        <div class="cta-inline" style="margin-top: 36px">
+          <a class="btn btn--gold btn--lg" href="map.html">Попробовать на карте</a>
+          <a class="btn btn--on-dark" href="about.html">Подробнее про рейтинг</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="keep-title">
+      <h2 id="keep-title" class="section__title">Чтобы возвращаться</h2>
+      <p class="section__lead">
+        Без регистрации. Три привычки, из‑за которых картой пользуются снова.
+      </p>
+      <div class="keep">
+        <div>
+          <h3>Закладка в браузере</h3>
+          <p>Сохраните главную или карту — быстрее, чем искать чаты заново перед каждой поездкой.</p>
+        </div>
+        <div>
+          <h3>Ссылка на пруд</h3>
+          <p>
+            В карточке скопируйте ссылку или отправьте в Telegram / Max / WhatsApp.
+            Друг откроет сразу нужное место.
+          </p>
+        </div>
+        <div>
+          <h3>Режим отзывов</h3>
+          <p>
+            Переключите легенду на «по отзывам» — увидите, где уже есть проверенные
+            отчёты рыбаков, а не только карточка каталога.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="faq-title">
+      <div class="section">
+        <h2 id="faq-title" class="section__title">Частые вопросы</h2>
+        <div class="faq">
+          <details>
+            <summary>Это платный сервис?</summary>
+            <p>Нет. Карта открывается бесплатно. Платить нужно только на самих прудах, если место платное.</p>
+          </details>
+          <details>
+            <summary>Откуда отзывы и уловы?</summary>
+            <p>
+              Из публичных рыбацких Telegram-каналов. В карточку попадает отчёт только если
+              в тексте есть название этого пруда. Средний улов на карточке не показываем выше 10 кг.
+            </p>
+          </details>
+          <details>
+            <summary>Рейтинг гарантирует клёв?</summary>
+            <p>
+              Нет. Класс 1–10 отражает полноту данных и активность упоминаний.
+              Перед выездом уточняйте условия по телефону или на сайте места.
+            </p>
+          </details>
+          <details>
+            <summary>Сайт уже в интернете?</summary>
+            <p>
+              Сейчас это локальная версия в папке <span translate="no">site</span> на вашем компьютере.
+              Когда будете готовы выложить в сеть — скажите агенту «ок» на деплой.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-final" aria-labelledby="final-title">
+      <h2 id="final-title" class="section__title">Откройте карту перед следующей рыбалкой</h2>
+      <p class="section__lead">
+        Выберите пруд или бесплатный берег, посмотрите отчёты и постройте маршрут.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="map.html">Открыть КлёвЮг</a>
+        <a class="btn btn--ghost btn--lg" href="#tutorial">Ещё раз туториал</a>
+      </div>
+      <p class="local-badge" style="margin-top: 28px">Локальная версия · без публикации</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <strong translate="no">КлёвЮг</strong><br />
+        Карта рыбалки Юга России
+      </div>
+      <div>
+        <a href="map.html">Карта</a>
+        ·
+        <a href="#tutorial">Туториал</a>
+        ·
+        <a href="about.html">Как устроено</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

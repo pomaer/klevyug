@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071b24" />
+  <meta
+    name="description"
+    content="Как устроен КлёвЮг: рейтинг мест, платные и бесплатные точки, отзывы из Telegram, фильтры и маршрут."
+  />
+  <title>Как устроено — КлёвЮг</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=Unbounded:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+
+  <header class="site-header">
+    <a class="site-logo" href="index.html" translate="no">
+      <span class="site-logo__mark" aria-hidden="true"></span>
+      <span class="site-logo__name">КлёвЮг</span>
+    </a>
+    <nav class="site-nav" aria-label="Основное меню">
+      <a href="map.html">Карта</a>
+      <a href="index.html#tutorial">Туториал</a>
+      <a href="about.html" aria-current="page">Как устроено</a>
+      <a class="btn btn--primary" href="map.html">Открыть карту</a>
+    </nav>
+  </header>
+
+  <main id="main" class="section prose">
+    <h1 class="section__title">Как устроен КлёвЮг</h1>
+    <p class="section__lead">
+      Коротко: откуда берётся оценка, чем отличаются бесплатные места и как читать отзывы.
+    </p>
+
+    <h2 id="rating">Рейтинг места</h2>
+    <p>
+      Каждому месту даём балл от 0 до 100 и делим на 10 классов по
+      <strong>полноте карточки</strong> (рыба, цена, контакты, свежесть, упоминания).
+      Чем выше класс — тем крупнее и зеленее кружок. Это не оценка клёва.
+    </p>
+    <p>
+      Рейтинг помогает сравнить, где больше сведений.
+      Перед выездом уточняйте условия по телефону или на сайте места.
+    </p>
+
+    <h2 id="icons">Платные и бесплатные</h2>
+    <p>
+      <strong>Цветной кружок</strong> — платный, спортивный или частный пруд.
+      Цвет показывает полноту данных: красный — мало сведений, зелёный — больше.
+      <strong>Меньший кружок</strong> — бесплатное место общего пользования
+      (участок реки, лиман, водохранилище). Цвет тот же, размер меньше.
+    </p>
+
+    <h2 id="reviews">Отзывы из Telegram</h2>
+    <p>
+      Для части мест добавлены отчёты из рыбацких каналов Юга
+      (Кубань, Майкоп, Ставрополье, Астрахань и др.): число отчётов,
+      средний и максимальный улов в кг (средний на карточке не выше 10 кг),
+      частая рыба и отдельная <strong>оценка по отзывам от 1 до 10</strong>.
+      Это не то же самое, что общий рейтинг карточки из 100 баллов.
+    </p>
+    <p>
+      Отчёт привязываем только если в тексте есть название пруда.
+      В карточке указан канал-источник. В легенде карты можно переключить значки:
+      «по данным карточки» или «по отзывам рыбаков».
+    </p>
+
+    <h2 id="filters">Фильтры и маршрут</h2>
+    <p>
+      В панели «Фильтры» отмечайте несколько пунктов сразу: классы, тип места,
+      виды рыбы, актуальность данных. Если ничего не отмечено — на карте всё.
+      Маршрут строится от вашей геолокации или от точки, которую вы укажете на карте,
+      и открывается в Яндекс.Картах.
+    </p>
+
+    <h2 id="tutorial">Туториал</h2>
+    <p>
+      Пошаговая инструкция с главной страницы:
+      <a href="index.html#tutorial">КлёвЮг → Туториал</a>.
+    </p>
+
+    <h2 id="privacy">Локальная версия</h2>
+    <p>
+      Сейчас сайт открывается с вашего компьютера и в интернет не опубликован.
+      Когда решите выложить — скажите агенту «ок» на деплой.
+    </p>
+
+    <div class="cta-inline" style="margin-top: 32px">
+      <a class="btn btn--primary" href="map.html">Открыть карту</a>
+      <a class="btn btn--ghost" href="index.html">На главную</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <strong translate="no">КлёвЮг</strong><br />
+        Локальная версия сайта
+      </div>
+      <div>
+        <a href="map.html">Карта</a>
+        ·
+        <a href="index.html">Главная</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
