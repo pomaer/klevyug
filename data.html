@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#eef8f6" />
+  <meta
+    name="description"
+    content="Откуда Клево берёт данные: OpenStreetMap, публичные Telegram-каналы, геолокация только в браузере."
+  />
+  <title>О данных — Клево</title>
+  <link rel="canonical" href="https://klevyug.ru/data.html" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="О данных — Клево" />
+  <meta property="og:description" content="Подложка OSM, отзывы из публичных каналов, геолокация не уходит на сервер." />
+  <meta property="og:url" content="https://klevyug.ru/data.html" />
+  <meta property="og:image" content="https://klevyug.ru/assets/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+
+  <header class="site-header">
+    <a class="site-logo" href="index.html" translate="no">
+      <span class="site-logo__mark" aria-hidden="true">
+        <svg class="site-logo__svg" viewBox="0 0 24 32" fill="none">
+          <path d="M11.2 4h1.6v14h-1.6z" fill="currentColor"/>
+          <circle cx="12" cy="22.4" r="6.4" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="site-logo__name">Клево</span>
+    </a>
+    <nav class="site-nav" aria-label="Основное меню">
+      <button
+        type="button"
+        class="site-menu-btn"
+        id="site-menu-btn"
+        aria-expanded="false"
+        aria-controls="site-nav-panel"
+        aria-label="Открыть меню"
+      >
+        <span class="site-menu-btn__bars" aria-hidden="true"></span>
+      </button>
+      <div class="site-nav__panel" id="site-nav-panel">
+        <a href="map.html">Карта</a>
+        <a href="index.html#how-to">Как пользоваться</a>
+        <a href="about.html">Как устроено</a>
+      </div>
+      <a class="btn btn--primary" href="map.html">Открыть карту</a>
+    </nav>
+  </header>
+
+  <main id="main" class="section prose">
+    <h1 class="section__title">О данных</h1>
+    <p class="section__lead">
+      Что Клево показывает, откуда это берётся и что остаётся у вас в браузере.
+    </p>
+
+    <h2 id="map">Подложка карты</h2>
+    <p>
+      Тайлы — <span translate="no">OpenStreetMap</span>.
+      © участники OpenStreetMap. Карта мест Клево собрана отдельно и лежит поверх.
+    </p>
+
+    <h2 id="reviews">Отзывы</h2>
+    <p>
+      Цитаты и оценки по отзывам — из публичных рыбацких Telegram-каналов Юга.
+      В карточку попадает сообщение только если в тексте есть название этого пруда.
+      Источник виден в карточке места.
+    </p>
+
+    <h2 id="geo">Геолокация</h2>
+    <p>
+      Если вы разрешаете доступ к местоположению, браузер использует его,
+      чтобы построить маршрут в Яндекс.Картах. Координаты не отправляются
+      на сервер Клево и не сохраняются.
+    </p>
+
+    <h2 id="metrics">Счётчик</h2>
+    <p>
+      Если на сайте включена Яндекс.Метрика, она считает визиты по своим правилам.
+      Идентификатор счётчика задаётся при публикации, без него скрипт молчит.
+    </p>
+
+    <div class="cta-inline">
+      <a class="btn btn--primary" href="map.html">Открыть карту</a>
+      <a class="btn btn--ghost" href="about.html">Как устроено</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <strong translate="no">Клево</strong><br />
+        Карта рыбалки Юга России
+      </div>
+      <div>
+        <a href="map.html">Карта</a>
+        ·
+        <a href="index.html">Главная</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/nav.js"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/analytics.js" defer></script>
+</body>
+</html>

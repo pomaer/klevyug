@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#071b24" />
+  <meta name="theme-color" content="#eef8f6" />
   <meta
     name="description"
-    content="КлёвЮг — карта платных прудов и бесплатных берегов Юга России: Кубань, Адыгея, Ставрополье, Калмыкия, Астрахань. Фильтры, отзывы рыбаков, маршрут."
+    content="Клево — карта платных прудов и бесплатных берегов Юга России: Кубань, Адыгея, Ставрополье, Калмыкия, Астрахань. Фильтры, отзывы рыбаков, маршрут."
   />
-  <title>КлёвЮг — карта рыбалки Юга</title>
+  <title>Клево — карта рыбалки Юга</title>
+  <link rel="canonical" href="https://klevyug.ru/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Клево — карта рыбалки Юга" />
+  <meta property="og:description" content="Платные пруды и бесплатные берега от Кубани до Астрахани: фильтры, отзывы, маршрут." />
+  <meta property="og:url" content="https://klevyug.ru/" />
+  <meta property="og:image" content="https://klevyug.ru/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=Unbounded:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
@@ -22,8 +28,13 @@
 
   <header class="site-header">
     <a class="site-logo" href="index.html" translate="no">
-      <span class="site-logo__mark" aria-hidden="true"></span>
-      <span class="site-logo__name">КлёвЮг</span>
+      <span class="site-logo__mark" aria-hidden="true">
+        <svg class="site-logo__svg" viewBox="0 0 24 32" fill="none">
+          <path d="M11.2 4h1.6v14h-1.6z" fill="currentColor"/>
+          <circle cx="12" cy="22.4" r="6.4" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="site-logo__name">Клево</span>
     </a>
     <nav class="site-nav" aria-label="Основное меню">
       <button
@@ -38,7 +49,7 @@
       </button>
       <div class="site-nav__panel" id="site-nav-panel">
         <a href="map.html">Карта</a>
-        <a href="#tutorial">Туториал</a>
+        <a href="#how-to">Как пользоваться</a>
         <a href="about.html">Как устроено</a>
       </div>
       <a class="btn btn--primary" href="map.html">Открыть карту</a>
@@ -50,15 +61,24 @@
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="hero__map" aria-hidden="true"></div>
       <div class="hero__wave" aria-hidden="true"></div>
-      <div class="hero__inner">
-        <h1 id="hero-brand" class="hero__brand" translate="no">Клёв<span>Юг</span></h1>
+      <div class="hero__card">
+        <h1 id="hero-brand" class="hero__brand" translate="no">Клево</h1>
         <p class="hero__lead">
           Карта прудов и бесплатных берегов от Кубани до Астрахани —
           с фильтрами, отчётами рыбаков и маршрутом до места.
         </p>
+        <div class="hero__scale" aria-hidden="true">
+          <span class="hero__dot hero__dot--bad"></span>
+          <span class="hero__bar"></span>
+          <span class="hero__dot hero__dot--best"></span>
+        </div>
+        <div class="hero__ends" aria-hidden="true">
+          <span>мало данных</span>
+          <span>карточка полнее</span>
+        </div>
         <div class="hero__actions">
-          <a class="btn btn--gold btn--lg" href="map.html">Открыть карту</a>
-          <a class="btn btn--on-dark btn--lg" href="#tutorial">Как пользоваться</a>
+          <a class="btn btn--primary btn--lg" href="map.html">Открыть карту</a>
+          <a class="btn btn--ghost btn--lg" href="#how-to">Как пользоваться</a>
         </div>
       </div>
     </section>
@@ -66,7 +86,7 @@
     <section class="section" aria-labelledby="facts-title">
       <h2 id="facts-title" class="section__title">Что уже на карте</h2>
       <p class="section__lead">
-        Цифры из текущей базы сервиса. Отзывы попадают только если в сообщении
+        Цифры из текущей базы. Отзыв попадает на карточку только если в сообщении
         есть название именно этого пруда.
       </p>
       <ul class="facts">
@@ -80,7 +100,7 @@
         </li>
         <li>
           <strong>331</strong>
-          <span>мест с оценкой по проверенным TG-отчётам</span>
+          <span>место с оценкой по проверенным отчётам из Telegram</span>
         </li>
       </ul>
     </section>
@@ -102,57 +122,85 @@
 
     <section class="section" aria-labelledby="icons-title">
       <h2 id="icons-title" class="section__title">Как читать значки</h2>
-      <p class="section__lead">Цвет и размер помогают сравнить места до клика.</p>
+      <p class="section__lead">
+        На карте точки — цветные поплавки. Цвет — балл из 10: насколько заполнена карточка.
+        Это не прогноз клёва.
+      </p>
       <div class="legend-row">
         <div class="legend-item">
-          <span class="legend-item__icon legend-item__icon--circle" aria-hidden="true"></span>
+          <span class="fish-ico fish-ico--lg" aria-hidden="true">
+            <svg viewBox="0 0 24 32" fill="none">
+              <path d="M12 2.5v5.5" stroke="#163532" stroke-width="1.4" stroke-linecap="round"/>
+              <rect x="8" y="7" width="8" height="6" rx="3" fill="#e8d4a0"/>
+              <rect x="7.5" y="12.5" width="9" height="11" rx="4.5" fill="#2e7d32"/>
+              <circle cx="12" cy="26" r="1.6" fill="#e8d4a0"/>
+            </svg>
+          </span>
           <div>
-            <h3>Крупный цветной кружок</h3>
+            <h3>Крупный поплавок</h3>
             <p>
-              Платный или спортивный пруд. Зеленее и крупнее — в карточке больше сведений.
-              Краснее — данных меньше. Это не прогноз клёва.
+              Платный или спортивный пруд. Зеленее и крупнее — карточка заполнена лучше.
+              Краснее и мельче — данных мало. В карточке тот же балл пишется из 10.
             </p>
           </div>
         </div>
         <div class="legend-item">
-          <span class="legend-item__icon legend-item__icon--small" aria-hidden="true"></span>
+          <span class="fish-ico fish-ico--lg" aria-hidden="true">
+            <svg viewBox="0 0 24 32" fill="none">
+              <path d="M12 4v5" stroke="#4b5563" stroke-width="1.2" stroke-linecap="round"/>
+              <rect x="9" y="8" width="6" height="4" rx="2" fill="#d1d5db"/>
+              <rect x="8.5" y="11.5" width="7" height="8" rx="3.5" fill="#6b7280"/>
+            </svg>
+          </span>
           <div>
-            <h3>Меньший кружок</h3>
+            <h3>Малый поплавок</h3>
             <p>
-              Бесплатное место. Цвет тот же рейтинг, размер меньше — чтобы сразу
-              отличать от платников.
+              Бесплатный берег или водоём общего пользования — тот же цвет рейтинга,
+              размер меньше, чтобы сразу отличить от платника.
             </p>
           </div>
         </div>
       </div>
+      <div class="legend-swatch" aria-hidden="true">
+        <span class="legend-swatch__label">На карте сейчас</span>
+        <span class="legend-swatch__dots">
+          <i class="legend-dot legend-dot--paid legend-dot--good"></i>
+          <i class="legend-dot legend-dot--paid legend-dot--mid"></i>
+          <i class="legend-dot legend-dot--paid legend-dot--low"></i>
+          <i class="legend-dot legend-dot--free legend-dot--good"></i>
+          <i class="legend-dot legend-dot--free legend-dot--mid"></i>
+          <i class="legend-dot legend-dot--free legend-dot--low"></i>
+        </span>
+        <span class="legend-swatch__hint">крупный = платно · мелкий = бесплатно · цвет = балл из 10</span>
+      </div>
     </section>
 
-    <section class="band band--deep" id="tutorial" aria-labelledby="tutorial-title">
+    <section class="band band--deep" id="how-to" aria-labelledby="howto-title">
       <div class="section">
-        <h2 id="tutorial-title" class="section__title">Туториал: 4 шага до выезда</h2>
+        <h2 id="howto-title" class="section__title">4 шага до выезда</h2>
         <p class="section__lead">
           Откройте карту на телефоне или ноутбуке и пройдите шаги один раз —
-          дальше будете делать это за минуту.
+          дальше это занимает минуту.
         </p>
         <div class="steps">
           <article class="step">
             <h3>Фильтры справа сверху</h3>
             <p>
-              Нажмите «Фильтры». Отметьте галочками тип (платный / бесплатный),
-              рыбу, класс. Можно несколько пунктов сразу. Пустой список = показаны все места.
+              Нажмите «Фильтры». Отметьте водоём (платный / бесплатный),
+              рыбу и актуальность отзывов. Можно несколько пунктов сразу. Пустой список — на карте все места.
             </p>
           </article>
           <article class="step">
             <h3>Поиск по названию</h3>
             <p>
-              В строке «Найти место…» введите пруд или посёлок. Выберите результат —
+              В строке «Найти пруд или посёлок…» введите место. Выберите результат —
               карта приблизится к точке.
             </p>
           </article>
           <article class="step">
             <h3>Карточка места</h3>
             <p>
-              Клик по кружку: цена, рыба, телефон, сайт, оценка по отзывам,
+              Нажмите на поплавок: цена, рыба, телефон, сайт, оценка по отзывам,
               цитаты из Telegram, кнопки «поделиться» и маршрут в Яндекс.Картах.
             </p>
           </article>
@@ -164,8 +212,8 @@
             </p>
           </article>
         </div>
-        <div class="cta-inline" style="margin-top: 36px">
-          <a class="btn btn--gold btn--lg" href="map.html">Попробовать на карте</a>
+        <div class="cta-inline">
+          <a class="btn btn--primary btn--lg" href="map.html">Открыть карту</a>
           <a class="btn btn--on-dark" href="about.html">Подробнее про рейтинг</a>
         </div>
       </div>
@@ -177,18 +225,18 @@
         Без регистрации. Три привычки, из‑за которых картой пользуются снова.
       </p>
       <div class="keep">
-        <div>
+        <div class="keep__item">
           <h3>Закладка в браузере</h3>
           <p>Сохраните главную или карту — быстрее, чем искать чаты заново перед каждой поездкой.</p>
         </div>
-        <div>
+        <div class="keep__item">
           <h3>Ссылка на пруд</h3>
           <p>
             В карточке скопируйте ссылку или отправьте в Telegram / Max / WhatsApp.
             Друг откроет сразу нужное место.
           </p>
         </div>
-        <div>
+        <div class="keep__item">
           <h3>Режим отзывов</h3>
           <p>
             Переключите легенду на «по отзывам» — увидите, где уже есть проверенные
@@ -216,16 +264,14 @@
           <details>
             <summary>Рейтинг гарантирует клёв?</summary>
             <p>
-              Нет. Класс 1–10 отражает полноту данных и активность упоминаний.
-              Перед выездом уточняйте условия по телефону или на сайте места.
+              Нет. Балл из 10 — насколько заполнена карточка. Цвет поплавка — тот же балл
+              по шкале красный → зелёный, не прогноз клёва. Перед выездом уточняйте условия.
             </p>
           </details>
           <details>
-            <summary>Сайт уже в интернете?</summary>
+            <summary>Где открыть карту?</summary>
             <p>
-              Да. Открывайте
-              <a href="https://pomaer.github.io/klevyug/" translate="no">pomaer.github.io/klevyug</a>
-              — карта и главная доступны с телефона и компьютера.
+              Здесь, на сайте Клево. Главная и карта открываются с телефона и компьютера.
             </p>
           </details>
         </div>
@@ -238,8 +284,8 @@
         Выберите пруд или бесплатный берег, посмотрите отчёты и постройте маршрут.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary btn--lg" href="map.html">Открыть КлёвЮг</a>
-        <a class="btn btn--ghost btn--lg" href="#tutorial">Ещё раз туториал</a>
+        <a class="btn btn--primary btn--lg" href="map.html">Открыть карту</a>
+        <a class="btn btn--ghost btn--lg" href="#how-to">Ещё раз как пользоваться</a>
       </div>
     </section>
   </main>
@@ -247,38 +293,22 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div>
-        <strong translate="no">КлёвЮг</strong><br />
+        <strong translate="no">Клево</strong><br />
         Карта рыбалки Юга России
       </div>
       <div>
         <a href="map.html">Карта</a>
         ·
-        <a href="#tutorial">Туториал</a>
+        <a href="#how-to">Как пользоваться</a>
         ·
         <a href="about.html">Как устроено</a>
+        ·
+        <a href="data.html">О данных</a>
       </div>
     </div>
   </footer>
-  <script>
-    (function () {
-      var btn = document.getElementById("site-menu-btn");
-      var panel = document.getElementById("site-nav-panel");
-      if (!btn || !panel) return;
-      function setOpen(open) {
-        document.body.classList.toggle("nav-open", open);
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
-      }
-      btn.addEventListener("click", function () {
-        setOpen(!document.body.classList.contains("nav-open"));
-      });
-      panel.querySelectorAll("a").forEach(function (a) {
-        a.addEventListener("click", function () { setOpen(false); });
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") setOpen(false);
-      });
-    })();
-  </script>
+  <script src="assets/nav.js"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/analytics.js" defer></script>
 </body>
 </html>

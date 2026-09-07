@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /float-variants
+Disallow: /float-variants.html
+Disallow: /float-variants-v2.html
+Disallow: /float-variants-apple.html
+Disallow: /float-variants-modern.html
+Disallow: /float-variants-dot.html
+Disallow: /scripts/
+
+Sitemap: https://klevyug.ru/sitemap.xml

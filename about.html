@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#071b24" />
+  <meta name="theme-color" content="#eef8f6" />
   <meta
     name="description"
-    content="Как устроен КлёвЮг: рейтинг мест, платные и бесплатные точки, отзывы из Telegram, фильтры и маршрут."
+    content="Как устроен Клево: рейтинг мест, платные и бесплатные точки, отзывы из Telegram, фильтры и маршрут."
   />
-  <title>Как устроено — КлёвЮг</title>
+  <title>Как устроено — Клево</title>
+  <link rel="canonical" href="https://klevyug.ru/about.html" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Как устроено — Клево" />
+  <meta property="og:description" content="Откуда берётся оценка места, чем отличаются бесплатные берега и как читать отзывы." />
+  <meta property="og:url" content="https://klevyug.ru/about.html" />
+  <meta property="og:image" content="https://klevyug.ru/assets/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=Unbounded:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
@@ -22,8 +27,13 @@
 
   <header class="site-header">
     <a class="site-logo" href="index.html" translate="no">
-      <span class="site-logo__mark" aria-hidden="true"></span>
-      <span class="site-logo__name">КлёвЮг</span>
+      <span class="site-logo__mark" aria-hidden="true">
+        <svg class="site-logo__svg" viewBox="0 0 24 32" fill="none">
+          <path d="M11.2 4h1.6v14h-1.6z" fill="currentColor"/>
+          <circle cx="12" cy="22.4" r="6.4" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="site-logo__name">Клево</span>
     </a>
     <nav class="site-nav" aria-label="Основное меню">
       <button
@@ -38,7 +48,7 @@
       </button>
       <div class="site-nav__panel" id="site-nav-panel">
         <a href="map.html">Карта</a>
-        <a href="index.html#tutorial">Туториал</a>
+        <a href="index.html#how-to">Как пользоваться</a>
         <a href="about.html" aria-current="page">Как устроено</a>
       </div>
       <a class="btn btn--primary" href="map.html">Открыть карту</a>
@@ -46,28 +56,31 @@
   </header>
 
   <main id="main" class="section prose">
-    <h1 class="section__title">Как устроен КлёвЮг</h1>
+    <h1 class="section__title">Как устроен Клево</h1>
     <p class="section__lead">
       Коротко: откуда берётся оценка, чем отличаются бесплатные места и как читать отзывы.
     </p>
 
     <h2 id="rating">Рейтинг места</h2>
     <p>
-      Каждому месту даём балл от 0 до 100 и делим на 10 классов по
-      <strong>полноте карточки</strong> (рыба, цена, контакты, свежесть, упоминания).
-      Чем выше класс — тем крупнее и зеленее кружок. Это не оценка клёва.
+      Каждому месту считаем балл <strong>от 0 до 10</strong> — насколько заполнена карточка
+      (рыба, цена, контакты, свежесть, упоминания). В карточке он так и показан:
+      например, <strong>8.8 из 10</strong>.
     </p>
     <p>
-      Рейтинг помогает сравнить, где больше сведений.
-      Перед выездом уточняйте условия по телефону или на сайте места.
+      Цвет поплавка — тот же балл по шкале красный → зелёный. Зеленее и крупнее —
+      карточка полнее. Краснее и мельче — данных мало. Это не оценка клёва
+      и не прогноз на день.
+    </p>
+    <p>
+      Перед выездом лучше уточнить условия по телефону или на сайте места.
     </p>
 
     <h2 id="icons">Платные и бесплатные</h2>
     <p>
-      <strong>Цветной кружок</strong> — платный, спортивный или частный пруд.
-      Цвет показывает полноту данных: красный — мало сведений, зелёный — больше.
-      <strong>Меньший кружок</strong> — бесплатное место общего пользования
-      (участок реки, лиман, водохранилище). Цвет тот же, размер меньше.
+      На карте это поплавки разного размера. <strong>Крупный</strong> — платный, спортивный
+      или частный пруд. <strong>Малый</strong> — бесплатный берег или водоём общего пользования.
+      Цвет у обоих один: балл из 10.
     </p>
 
     <h2 id="reviews">Отзывы из Telegram</h2>
@@ -76,7 +89,7 @@
       (Кубань, Майкоп, Ставрополье, Астрахань и др.): число отчётов,
       средний и максимальный улов в кг (средний на карточке не выше 10 кг),
       частая рыба и отдельная <strong>оценка по отзывам от 1 до 10</strong>.
-      Это не то же самое, что общий рейтинг карточки из 100 баллов.
+      Это не то же самое, что балл заполненности карточки.
     </p>
     <p>
       Отчёт привязываем только если в тексте есть название пруда.
@@ -86,26 +99,26 @@
 
     <h2 id="filters">Фильтры и маршрут</h2>
     <p>
-      В панели «Фильтры» отмечайте несколько пунктов сразу: классы, тип места,
-      виды рыбы, актуальность данных. Если ничего не отмечено — на карте всё.
+      В панели «Фильтры» отмечайте несколько пунктов сразу: тип водоёма,
+      виды рыбы и актуальность отзывов из Telegram.
+      Если ничего не отмечено — на карте всё.
       Маршрут строится от вашей геолокации или от точки, которую вы укажете на карте,
       и открывается в Яндекс.Картах.
     </p>
 
-    <h2 id="tutorial">Туториал</h2>
+    <h2 id="howto">Как пользоваться</h2>
     <p>
       Пошаговая инструкция с главной страницы:
-      <a href="index.html#tutorial">КлёвЮг → Туториал</a>.
+      <a href="index.html#how-to">Клево → 4 шага до выезда</a>.
     </p>
 
-    <h2 id="privacy">В интернете</h2>
+    <h2 id="data">Откуда данные</h2>
     <p>
-      Сайт опубликован:
-      <a href="https://pomaer.github.io/klevyug/" translate="no">pomaer.github.io/klevyug</a>.
-      Карта открывается с телефона и компьютера.
+      Подложка карты — OpenStreetMap. Отзывы — из публичных Telegram-каналов.
+      Геолокация остаётся в браузере. Подробнее: <a href="data.html">О данных</a>.
     </p>
 
-    <div class="cta-inline" style="margin-top: 32px">
+    <div class="cta-inline">
       <a class="btn btn--primary" href="map.html">Открыть карту</a>
       <a class="btn btn--ghost" href="index.html">На главную</a>
     </div>
@@ -114,36 +127,20 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div>
-        <strong translate="no">КлёвЮг</strong><br />
+        <strong translate="no">Клево</strong><br />
         Карта рыбалки Юга России
       </div>
       <div>
         <a href="map.html">Карта</a>
         ·
         <a href="index.html">Главная</a>
+        ·
+        <a href="data.html">О данных</a>
       </div>
     </div>
   </footer>
-  <script>
-    (function () {
-      var btn = document.getElementById("site-menu-btn");
-      var panel = document.getElementById("site-nav-panel");
-      if (!btn || !panel) return;
-      function setOpen(open) {
-        document.body.classList.toggle("nav-open", open);
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
-      }
-      btn.addEventListener("click", function () {
-        setOpen(!document.body.classList.contains("nav-open"));
-      });
-      panel.querySelectorAll("a").forEach(function (a) {
-        a.addEventListener("click", function () { setOpen(false); });
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") setOpen(false);
-      });
-    })();
-  </script>
+  <script src="assets/nav.js"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/analytics.js" defer></script>
 </body>
 </html>

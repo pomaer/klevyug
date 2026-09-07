@@ -1,0 +1,39 @@
+/* Клево — токены окна «Рейтинг водоёмов» */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@450;550;600;650;700;800&display=swap");
+
+:root {
+  --ink: #042f2c;
+  --ink-soft: #163532;
+  --muted: #4a6461;
+  --teal: #0a6b66;
+  --teal-bright: #12a594;
+  --foam: #eef8f6;
+  --sand: #f7fbfa;
+  --glass: rgba(255, 255, 255, 0.94);
+  --line: rgba(4, 47, 44, 0.1);
+  --shadow: 0 16px 40px rgba(4, 47, 44, 0.14);
+  --shadow-tight: 0 12px 32px rgba(4, 47, 44, 0.14);
+  --bad: #c62828;
+  --best: #2e7d32;
+  --font: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --radius: 18px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  --pond-ink: var(--ink);
+  --pond-ink-soft: var(--ink-soft);
+  --pond-muted: var(--muted);
+  --pond-teal: var(--teal);
+  --pond-teal-bright: var(--teal-bright);
+  --pond-foam: var(--foam);
+  --pond-sand: var(--sand);
+  --pond-line: var(--line);
+  --pond-glass: var(--glass);
+  --pond-shadow: var(--shadow);
+  --pond-font: var(--font);
+
+  color-scheme: light;
+}
