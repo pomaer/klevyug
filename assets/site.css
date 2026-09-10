@@ -631,9 +631,9 @@ a:hover {
   height: 8px;
 }
 
-.legend-dot--good { background: #15803d; }
-.legend-dot--mid { background: #eab308; }
-.legend-dot--low { background: #dc2626; }
+.legend-dot--good { background: #0a6b66; }
+.legend-dot--mid { background: #c4b83a; }
+.legend-dot--low { background: #d65a45; }
 
 .legend-swatch__hint {
   font-size: 0.86rem;
@@ -714,6 +714,30 @@ a:hover {
 
 .cta-final .hero__actions {
   margin-top: 8px;
+}
+
+.site-channels {
+  margin: 20px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.site-channels a {
+  color: var(--teal);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.site-channels a:hover {
+  color: var(--teal-bright);
+  text-decoration: underline;
+}
+
+.site-channels a:focus-visible {
+  outline: 3px solid var(--teal-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .cta-inline {

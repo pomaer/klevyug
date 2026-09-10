@@ -1113,12 +1113,62 @@ body.pond-detail-open .maplibregl-popup {
   overflow-wrap: anywhere;
 }
 .pond-links--main {
-  margin: 4px 0 16px;
+  margin: 4px 0 10px;
 }
 .pond-links--main .pond-link--route {
   width: 100%;
   justify-content: center;
 }
+.pond-channels {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(4, 47, 44, 0.03);
+  border: 1px solid var(--pond-line);
+}
+.pond-channels__lead {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  font-weight: 550;
+  color: var(--pond-muted);
+  line-height: 1.35;
+}
+.pond-channels__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pond-channel {
+  flex: 1 1 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 650;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease;
+}
+.pond-channel:focus-visible {
+  outline: 3px solid var(--pond-teal-bright);
+  outline-offset: 2px;
+}
+.pond-channel--tg {
+  color: #0369a1;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+}
+.pond-channel--tg:hover { background: rgba(14, 165, 233, 0.16); }
+.pond-channel--max {
+  color: #5b21b6;
+  background: rgba(109, 40, 217, 0.08);
+  border: 1px solid rgba(109, 40, 217, 0.16);
+}
+.pond-channel--max:hover { background: rgba(109, 40, 217, 0.14); }
 .pond-detail__badges {
   display: flex;
   flex-wrap: wrap;
@@ -1154,11 +1204,20 @@ body.pond-detail-open .maplibregl-popup {
   border: 1px solid var(--pond-line);
   box-shadow: 0 8px 22px rgba(4, 47, 44, 0.05);
 }
-.pond-detail__score b {
-  color: var(--pond-ink);
-  font-weight: 750;
-  font-variant-numeric: tabular-nums;
-  font-size: 1.15em;
+.pond-detail__reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0 0;
+}
+.pond-reason {
+  font-size: 11.5px;
+  line-height: 1.2;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(10, 107, 102, 0.08);
+  color: var(--pond-ink-soft);
+  font-weight: 550;
 }
 .pond-detail__analytics {
   margin: 8px 0 0;
@@ -1203,24 +1262,34 @@ body.pond-detail-open .maplibregl-popup {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #c62828, #ef6c00, #f9a825, #7cb342, #1b5e20);
+  background: linear-gradient(90deg, #d65a45, #e09a2f, #c4b83a, #2f9e8f, #0a6b66);
+}
+.pond-share {
+  margin: 0 0 18px;
+}
+.pond-share__lead {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  font-weight: 550;
+  color: var(--pond-muted);
+  line-height: 1.35;
 }
 .pond-share-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 18px;
+  gap: 6px;
 }
 .pond-share-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 13px;
+  gap: 5px;
+  min-height: 32px;
+  padding: 5px 10px;
   border-radius: 999px;
   border: 1px solid transparent;
   text-decoration: none;
   font-family: inherit;
-  font-size: 12.5px;
+  font-size: 11.5px;
   font-weight: 650;
   letter-spacing: -0.01em;
   cursor: pointer;
@@ -1233,8 +1302,8 @@ body.pond-detail-open .maplibregl-popup {
 }
 .pond-share-btn:active { transform: translateY(1px); }
 .pond-share-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
   flex: 0 0 auto;
 }
 .pond-share-btn--tg {
@@ -1819,7 +1888,7 @@ body.pond-filters-open .pond-legend {
   flex: 1 1 auto;
   height: 10px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #c62828 0%, #ef6c00 22%, #f9a825 44%, #7cb342 72%, #1b5e20 100%);
+  background: linear-gradient(90deg, #d65a45 0%, #e09a2f 25%, #c4b83a 50%, #2f9e8f 75%, #0a6b66 100%);
   box-shadow: inset 0 0 0 1px rgba(4, 47, 44, 0.1);
 }
 .pond-legend__dot {
@@ -1830,8 +1899,8 @@ body.pond-filters-open .pond-legend {
   border: 2px solid #fff;
   box-shadow: 0 0 0 1px rgba(4, 47, 44, 0.15);
 }
-.pond-legend__dot--bad { background: #c62828; }
-.pond-legend__dot--best { background: #2e7d32; }
+.pond-legend__dot--bad { background: #d65a45; }
+.pond-legend__dot--best { background: #0a6b66; }
 .pond-legend__ends {
   display: flex;
   justify-content: space-between;
@@ -1870,8 +1939,8 @@ body.pond-filters-open .pond-legend {
   display: block;
 }
 .pond-legend__float--free {
-  width: 14px;
-  height: 20px;
+  width: 20px;
+  height: 28px;
   color: #6b7280;
 }
 .pond-legend__circle {
@@ -2304,7 +2373,7 @@ body.pond-filters-open .pond-legend {
   <div class="pond-legend__modes" role="radiogroup" aria-label="Какой рейтинг показывать на значках">
     <label class="pond-legend__mode">
       <input type="radio" name="pond-rating-mode" value="data" checked />
-      <span>По данным карточки</span>
+      <span>Для рыбалки</span>
     </label>
     <label class="pond-legend__mode">
       <input type="radio" name="pond-rating-mode" value="reviews" />
@@ -2312,7 +2381,7 @@ body.pond-filters-open .pond-legend {
     </label>
   </div>
   <p class="pond-legend__lead" id="pond-legend-lead">
-    Цвет и размер поплавка — балл из 10: насколько заполнена карточка. Красный — мало данных, зелёный — карточка полнее. Это не прогноз клёва.
+    Цвет и размер поплавка — балл из 10: факты для выезда и отчёты рыбаков. Красный — мало фактов, зелёный — больше подтверждений. Это не прогноз клёва.
   </p>
   <div class="pond-legend__scale" aria-hidden="true">
     <span class="pond-legend__dot pond-legend__dot--bad"></span>
@@ -2320,8 +2389,8 @@ body.pond-filters-open .pond-legend {
     <span class="pond-legend__dot pond-legend__dot--best"></span>
   </div>
   <div class="pond-legend__ends" aria-hidden="true">
-    <span>1 · мало данных</span>
-    <span>10 · максимум</span>
+    <span>1 · мало фактов</span>
+    <span>10 · много подтверждений</span>
   </div>
   <p class="pond-legend__note" id="pond-legend-note">
     Режим «отзывы»: серый поплавок — отзывов из канала пока нет.
@@ -2329,13 +2398,25 @@ body.pond-filters-open .pond-legend {
   <div class="pond-legend__shapes">
     <div class="pond-legend__shape">
       <span class="pond-legend__float pond-legend__float--paid" aria-hidden="true">
-        <svg viewBox="0 0 24 32" fill="none"><rect x="10.2" y="2.5" width="3.6" height="12" rx="1.8" fill="#2e7d32" stroke="#163532" stroke-width="1.2"/><rect x="7.5" y="12.5" width="9" height="11" rx="4.5" fill="#2e7d32"/><circle cx="12" cy="26" r="1.6" fill="#e8d4a0"/></svg>
+        <svg viewBox="0 0 24 32" fill="none">
+          <ellipse cx="12" cy="18" rx="8" ry="9" fill="#fff" opacity="0.65"/>
+          <rect x="10" y="2" width="4" height="12" rx="2" fill="#0a6b66" stroke="#042f2c" stroke-width="1.2"/>
+          <rect x="6.5" y="10" width="11" height="15" rx="5.5" fill="#0a6b66" stroke="#042f2c" stroke-width="1.4"/>
+          <circle cx="12" cy="2" r="2.2" fill="#f7fbfa" stroke="#042f2c" stroke-width="1.1"/>
+          <circle cx="12" cy="27.5" r="2.4" fill="#f0e2b8" stroke="#042f2c" stroke-width="1.1"/>
+        </svg>
       </span>
       <span>Платный пруд</span>
     </div>
     <div class="pond-legend__shape">
       <span class="pond-legend__float pond-legend__float--free" aria-hidden="true">
-        <svg viewBox="0 0 24 32" fill="none"><rect x="10.5" y="4" width="3" height="9" rx="1.5" fill="#6b7280" stroke="#4b5563" stroke-width="1.05"/><rect x="8.5" y="11.5" width="7" height="8" rx="3.5" fill="#6b7280"/></svg>
+        <svg viewBox="0 0 24 32" fill="none">
+          <ellipse cx="12" cy="18" rx="7" ry="8" fill="#fff" opacity="0.75"/>
+          <rect x="10.4" y="4" width="3.2" height="10" rx="1.6" fill="#6b7c78" stroke="#042f2c" stroke-width="1"/>
+          <rect x="7.5" y="11" width="9" height="13" rx="4.5" fill="#f7fbfa" stroke="#6b7c78" stroke-width="2"/>
+          <line x1="12" y1="14" x2="12" y2="21" stroke="#6b7c78" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="12" cy="4" r="1.9" fill="#fff" stroke="#042f2c" stroke-width="1"/>
+        </svg>
       </span>
       <span>Бесплатное место</span>
     </div>
@@ -4162,41 +4243,136 @@ body.pond-filters-open .pond-legend {
 
 (function () {
   var CLASS_COLORS = {
-    1: "#c62828", 2: "#d32f2f", 3: "#ef6c00", 4: "#f57c00", 5: "#f9a825",
-    6: "#c0ca33", 7: "#7cb342", 8: "#43a047", 9: "#2e7d32", 10: "#1b5e20"
+    1: "#d65a45", 2: "#d65a45", 3: "#e09a2f", 4: "#e09a2f", 5: "#c4b83a",
+    6: "#c4b83a", 7: "#2f9e8f", 8: "#2f9e8f", 9: "#0a6b66", 10: "#0a6b66"
   };
   var CLASS_LABELS = {
-    1: "1 · мало данных", 2: "2 · мало данных", 3: "3 · мало данных",
-    4: "4 · ниже среднего", 5: "5 · средне", 6: "6 · выше среднего",
-    7: "7 · хорошо заполнено", 8: "8 · почти полно", 9: "9 · полно", 10: "10 · максимум"
+    1: "1 · мало фактов", 2: "2 · мало фактов", 3: "3 · слабая база",
+    4: "4 · есть база", 5: "5 · можно ехать", 6: "6 · достаточно для выезда",
+    7: "7 · хорошие данные", 8: "8 · много подтверждений",
+    9: "9 · сильное место по данным", 10: "10 · лучшие подтверждения"
   };
+  var EMPTY_FISH = { "": 1, "не указаны": 1, "Виды не указаны": 1, "Виды рыбы не указаны": 1 };
+  var EMPTY_PRICE = { "": 1, "Стоимость не указана": 1 };
+  var EMPTY_PHONE = { "": 1, "Телефон не указан": 1 };
+  var EMPTY_SITE = { "": 1, "Сайт не указан": 1 };
   var applied = false;
 
-  function scoreOf(props) {
-    var n = Number(props && props.rating_score);
+  function asNum(v) {
+    var n = Number(v);
     return isFinite(n) ? n : 0;
   }
 
-  function assignPercentileClasses(geojson) {
+  function filled(v, empty) {
+    var s = v == null ? "" : String(v).trim();
+    return !!(s && !empty[s]);
+  }
+
+  function latestIso(p) {
+    var latest = "";
+    var rec = String((p && p.reports_recent) || "");
+    var re = /\d{4}-\d{2}-\d{2}/g;
+    var m;
+    while ((m = re.exec(rec))) {
+      if (m[0] > latest) latest = m[0];
+    }
+    var seen = String((p && p.tg_last_seen) || "");
+    if (/^\d{4}-\d{2}-\d{2}/.test(seen) && seen.slice(0, 10) > latest) latest = seen.slice(0, 10);
+    return latest;
+  }
+
+  function amenityPts(p) {
+    var t = [p && p.name, p && p.description, p && p.price, p && p.param_price].join(" ");
+    var n = 0;
+    if (/беседк/i.test(t)) n += 2;
+    if (/домик|гостев|гостиниц|отель|хостел|сруб/i.test(t)) n += 2;
+    if (/мангал|барбекю|шашлыч/i.test(t)) n += 2;
+    if (/кораблик/i.test(t)) n += 2;
+    return Math.min(n, 6);
+  }
+
+  function fishingRating(p, today) {
+    p = p || {};
+    today = today || new Date();
+    var access = String(p.access_type || "unknown").trim() || "unknown";
+    var fishN = asNum(p.fish_count);
+    var price = String(p.price || "").trim();
+    var year = asNum(p.year);
+    var trip = 0;
+    var reasons = [];
+
+    if (access === "paid" || access === "free" || access === "sport") {
+      trip += 10;
+      reasons.push("тип места");
+    }
+    if (fishN >= 4) { trip += 14; reasons.push("виды рыбы"); }
+    else if (fishN >= 2) { trip += 10; reasons.push("виды рыбы"); }
+    else if (fishN >= 1) { trip += 6; reasons.push("вид рыбы"); }
+    if (access === "free") { trip += 8; reasons.push("бесплатно"); }
+    else if (filled(price, EMPTY_PRICE) && price !== "Бесплатно") {
+      trip += 10;
+      reasons.push("цена");
+    }
+    if (filled(p.phone, EMPTY_PHONE)) { trip += 8; reasons.push("телефон"); }
+    if (filled(p.website, EMPTY_SITE) || String(p.telegram || "").trim()) {
+      trip += 4;
+      reasons.push("сайт или Telegram");
+    }
+    if (year >= 2025) { trip += 6; reasons.push("свежие сведения"); }
+    else if (year === 2024) { trip += 3; reasons.push("сведения 2024"); }
+    if (trip > 50) trip = 50;
+
+    var evidence = 0;
+    var review = Math.max(0, asNum(p.review_score));
+    if (review > 0) evidence += Math.min(32, review * 3.2);
+    var reports = Math.round(asNum(p.reports_count));
+    if (reports >= 10) evidence += 16;
+    else if (reports >= 5) evidence += 12;
+    else if (reports >= 2) evidence += 8;
+    else if (reports >= 1) evidence += 4;
+    if (reports === 1) reasons.push("1 отчёт");
+    else if (reports > 1) reasons.push(reports + " отчётов");
+    var latest = latestIso(p);
+    if (latest) {
+      var parts = latest.split("-");
+      var days = Math.floor((today - new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]))) / 86400000);
+      if (days <= 30) { evidence += 6; reasons.push("отчёты за месяц"); }
+      else if (days <= 90) { evidence += 3; reasons.push("отчёты за квартал"); }
+      else if (days <= 365) evidence += 1;
+    }
+    if (evidence > 44) evidence = 44;
+
+    var amen = amenityPts(p);
+    if (amen) reasons.push("удобства");
+
+    var score = Math.round(Math.min(100, trip + evidence + amen) * 10) / 10;
+    var score10 = Math.round(score) / 10;
+    var cls = score10 >= 0.5 ? Math.round(score10) : 1;
+    if (cls < 1) cls = 1;
+    if (cls > 10) cls = 10;
+    if (score < 5) cls = 1;
+    return {
+      rating_score: score,
+      rating_class: cls,
+      rating_label: CLASS_LABELS[cls],
+      rating_color: CLASS_COLORS[cls],
+      rating_reasons: reasons.join(" · ")
+    };
+  }
+
+  function applyFishingRatings(geojson) {
     if (!geojson || !geojson.features || !geojson.features.length) return geojson;
     var feats = geojson.features;
-    var indexed = [];
+    var today = new Date();
     for (var i = 0; i < feats.length; i++) {
-      indexed.push({ i: i, s: scoreOf(feats[i].properties) });
-    }
-    indexed.sort(function (a, b) {
-      if (a.s !== b.s) return a.s - b.s;
-      return a.i - b.i;
-    });
-    var n = indexed.length;
-    for (var rank = 0; rank < n; rank++) {
-      var cls = n <= 1 ? 10 : Math.min(10, Math.floor((rank * 10) / n) + 1);
-      var feat = feats[indexed[rank].i];
+      var feat = feats[i];
       var pr = feat.properties || (feat.properties = {});
-      pr.rating_class = cls;
-      pr.rating_color = CLASS_COLORS[cls];
-      pr.rating_label = CLASS_LABELS[cls];
-      pr.rating_score = Math.round(scoreOf(pr) * 10) / 10;
+      var next = fishingRating(pr, today);
+      pr.rating_score = next.rating_score;
+      pr.rating_class = next.rating_class;
+      pr.rating_color = next.rating_color;
+      pr.rating_label = next.rating_label;
+      pr.rating_reasons = next.rating_reasons;
       if (feat.id == null && pr.object_id != null) feat.id = pr.object_id;
     }
     return geojson;
@@ -4208,7 +4384,7 @@ body.pond-filters-open .pond-legend {
     if (typeof getData !== "function") return Promise.resolve(false);
     return getData("ponds").then(function (data) {
       if (!data || !data.features) return false;
-      var next = assignPercentileClasses(JSON.parse(JSON.stringify(data)));
+      var next = applyFishingRatings(JSON.parse(JSON.stringify(data)));
       var src = map.getSource("ponds");
       if (!src || typeof src.setData !== "function") return false;
       src.setData(next);
@@ -4219,12 +4395,13 @@ body.pond-filters-open .pond-legend {
       if (typeof window.applyPondFilters === "function") window.applyPondFilters();
       return true;
     }).catch(function (e) {
-      if (typeof console !== "undefined" && console.warn) console.warn("kleve percentiles", e);
+      if (typeof console !== "undefined" && console.warn) console.warn("kleve fishing rating", e);
       return false;
     });
   }
 
-  window.kleveAssignPercentileClasses = assignPercentileClasses;
+  window.kleveFishingRating = fishingRating;
+  window.kleveAssignPercentileClasses = applyFishingRatings;
   window.kleveApplyPercentileRatings = applyToMap;
 
   function onReady(fn) {
@@ -4260,10 +4437,11 @@ body.pond-filters-open .pond-legend {
     return "kleve-float-" + String(score);
   }
 
-  var COLOR_STOPS = [
-    "#c62828", "#d32f2f", "#ef6c00", "#f57c00", "#f9a825",
-    "#c0ca33", "#7cb342", "#43a047", "#2e7d32", "#1b5e20"
-  ];
+  var COLOR_STOPS = ["#d65a45", "#e09a2f", "#c4b83a", "#2f9e8f", "#0a6b66"];
+  var INK = "#042f2c";
+  var FOAM = "#f7fbfa";
+  var BEAD = "#f0e2b8";
+  var FREE_STROKE = "#6b7c78";
 
   function hexToRgb(hex) {
     var n = parseInt(hex.slice(1), 16);
@@ -4289,7 +4467,7 @@ body.pond-filters-open .pond-legend {
   }
 
   function sizeAtScore(t) {
-    return 0.88 + t * 0.12;
+    return 0.94 + t * 0.06;
   }
 
   function roundRectPath(ctx, x, y, w, h, r) {
@@ -4315,48 +4493,88 @@ body.pond-filters-open .pond-legend {
 
     var drawScale = free ? 0.72 : sizeAtScore(t);
     var g = size / 64;
-    var ox = (size - 48 * g) / 2;
-    var cx = ox + 24 * g;
-    var fill = free ? "#6b7280" : colorAtScore(t);
-    var bead = "#e8d4a0";
-    var antenna = free ? "#4b5563" : "#163532";
+    var cx = size / 2;
+    var color = free ? FREE_STROKE : colorAtScore(t);
 
     ctx.save();
     ctx.translate(size / 2, size);
     ctx.scale(drawScale, drawScale);
     ctx.translate(-size / 2, -size);
 
-    var bodyW = (free ? 14 : 18) * g;
-    var bodyH = (free ? 16 : 22) * g;
-    var bodyY = (free ? 23 : 25) * g;
-    var antTop = (free ? 8 : 5) * g;
-    var antBot = bodyY + 5 * g;
-    var antW = (free ? 2.8 : 3.4) * g;
+    var bodyW = (free ? 15 : 19) * g;
+    var bodyH = (free ? 18 : 22) * g;
+    var bodyY = (free ? 20 : 18) * g;
+    var antTop = (free ? 8 : 6) * g;
+    var antW = (free ? 3.2 : 3.8) * g;
+    var antH = bodyY + bodyH * 0.28 - antTop;
+    var tipR = (free ? 2.6 : 3.2) * g;
+    var beadR = 3.8 * g;
+    var beadY = bodyY + bodyH + beadR * 0.15;
 
-    roundRectPath(ctx, cx - antW / 2, antTop, antW, antBot - antTop, antW / 2);
-    ctx.fillStyle = fill;
+    // светлый ореол — читаемость на OSM
+    ctx.beginPath();
+    if (typeof ctx.ellipse === "function") {
+      ctx.ellipse(cx, bodyY + bodyH * 0.52, bodyW * 0.78, bodyH * 0.62, 0, 0, Math.PI * 2);
+    } else {
+      ctx.save();
+      ctx.translate(cx, bodyY + bodyH * 0.52);
+      ctx.scale(bodyW * 0.78, bodyH * 0.62);
+      ctx.arc(0, 0, 1, 0, Math.PI * 2);
+      ctx.restore();
+    }
+    ctx.fillStyle = "rgba(255,255,255,0.72)";
     ctx.fill();
-    ctx.strokeStyle = antenna;
-    ctx.lineWidth = (free ? 1.05 : 1.25) * g;
+
+    // ножка
+    roundRectPath(ctx, cx - antW / 2, antTop, antW, antH, antW / 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 1.5 * g;
     ctx.lineJoin = "round";
     ctx.stroke();
 
+    // тело
     roundRectPath(ctx, cx - bodyW / 2, bodyY, bodyW, bodyH, bodyW / 2);
-    ctx.fillStyle = fill;
-    ctx.fill();
-    ctx.lineWidth = 1.1 * g;
-    ctx.strokeStyle = "rgba(0,0,0,0.22)";
-    ctx.stroke();
-
-    if (!free) {
-      ctx.beginPath();
-      ctx.arc(cx, 52 * g, 3.2 * g, 0, Math.PI * 2);
-      ctx.fillStyle = bead;
+    if (free) {
+      ctx.fillStyle = FOAM;
       ctx.fill();
-      ctx.lineWidth = 1 * g;
-      ctx.strokeStyle = "rgba(4,47,44,0.45)";
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2.6 * g;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(cx, bodyY + 5 * g);
+      ctx.lineTo(cx, bodyY + bodyH - 5 * g);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.6 * g;
+      ctx.lineCap = "round";
+      ctx.globalAlpha = 0.55;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    } else {
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 1.8 * g;
+      ctx.stroke();
+      // кремовая бусина снизу
+      ctx.beginPath();
+      ctx.arc(cx, beadY, beadR, 0, Math.PI * 2);
+      ctx.fillStyle = BEAD;
+      ctx.fill();
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 1.25 * g;
       ctx.stroke();
     }
+
+    // наконечник сверху
+    ctx.beginPath();
+    ctx.arc(cx, antTop, tipR, 0, Math.PI * 2);
+    ctx.fillStyle = FOAM;
+    ctx.fill();
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 1.3 * g;
+    ctx.stroke();
 
     ctx.restore();
   }
@@ -4373,21 +4591,31 @@ body.pond-filters-open .pond-legend {
 
   function ensureImages(map) {
     if (!map || imagesReady) return;
+    if (!map.getStyle || !map.getStyle()) return;
     try {
       SCORE_STEPS.forEach(function (sc) {
         var id = floatId(sc);
-        if (map.hasImage(id)) {
-          try { map.removeImage(id); } catch (e0) {}
+        try {
+          if (map.hasImage(id)) map.removeImage(id);
+        } catch (e0) {}
+        try {
+          map.addImage(id, makeImageData({ score: sc }), { pixelRatio: 2 });
+        } catch (eAdd) {
+          if (typeof console !== "undefined" && console.warn) console.warn("kleve float", id, eAdd);
         }
-        map.addImage(id, makeImageData({ score: sc }), { pixelRatio: 2 });
       });
-      if (map.hasImage(FLOAT_FREE)) {
-        try { map.removeImage(FLOAT_FREE); } catch (e0) {}
+      try {
+        if (map.hasImage(FLOAT_FREE)) map.removeImage(FLOAT_FREE);
+      } catch (e1) {}
+      try {
+        map.addImage(FLOAT_FREE, makeImageData({ free: true }), { pixelRatio: 2 });
+      } catch (eFree) {
+        if (typeof console !== "undefined" && console.warn) console.warn("kleve float free", eFree);
       }
-      map.addImage(FLOAT_FREE, makeImageData({ free: true }), { pixelRatio: 2 });
-      imagesReady = true;
+      imagesReady = SCORE_STEPS.every(function (sc) { return map.hasImage(floatId(sc)); }) && map.hasImage(FLOAT_FREE);
     } catch (e) {
       if (typeof console !== "undefined" && console.warn) console.warn("kleve float icons", e);
+      imagesReady = false;
     }
   }
 
@@ -4428,7 +4656,7 @@ body.pond-filters-open .pond-legend {
   }
 
   function hoverSizeExpr(paidSize, freeSize) {
-    return scaleExprNumbers(paidSize || freeSize || 0.55, 1.5);
+    return scaleExprNumbers(paidSize || freeSize || 0.4, 1.28);
   }
 
   function ensureHoverLayer(map, paidSize, freeSize, prop) {
@@ -4475,7 +4703,13 @@ body.pond-filters-open .pond-legend {
 
   function convertPondMarkers(map) {
     if (!map) return;
-    ensureImages(map);
+    try {
+      ensureImages(map);
+    } catch (eEnsure) {
+      if (typeof console !== "undefined" && console.warn) console.warn("kleve convert ensure", eEnsure);
+      return;
+    }
+    if (!imagesReady) return;
     var order = [
       ["ponds-free-halo", FLOAT_FREE],
       ["ponds-free", FLOAT_FREE],
@@ -4537,7 +4771,7 @@ body.pond-filters-open .pond-legend {
           "icon-ignore-placement": true,
           "icon-anchor": "bottom",
           "icon-padding": 0,
-          "icon-size": isHalo ? 0.55 : 0.55
+          "icon-size": isFree ? 0.82 : 0.46
         },
         paint: {
           "icon-opacity": isHalo ? 0 : 0.96,
@@ -4560,7 +4794,7 @@ body.pond-filters-open .pond-legend {
 
     converted = !!(map.getLayer("ponds-layer") && map.getLayer("ponds-layer").type === "symbol");
     window.kleveFloatsReady = converted;
-    if (converted) ensureHoverLayer(map, 0.7, 0.5, window.pondRatingProp);
+    if (converted) ensureHoverLayer(map, 0.48, 0.7, window.pondRatingProp);
   }
 
   window.kleveEnsureFloatImages = ensureImages;
@@ -4607,20 +4841,20 @@ body.pond-filters-open .pond-legend {
   function freeRadiusExpr() {
     return [
       "interpolate", ["linear"], ["zoom"],
-      5, 3.2,
-      8, 4.2,
-      11, 5.5,
-      14, 7
+      5, 6.4,
+      8, 8.4,
+      11, 11,
+      14, 14
     ];
   }
 
   function freeHaloRadiusExpr() {
     return [
       "interpolate", ["linear"], ["zoom"],
-      5, 4.64,
-      8, 6.09,
-      11, 7.975,
-      14, 10.15
+      5, 9.28,
+      8, 12.18,
+      11, 15.95,
+      14, 20.3
     ];
   }
 
@@ -4738,18 +4972,18 @@ body.pond-filters-open .pond-legend {
 
 (function () {
   var COLORS = {
-    1: "#c62828",
-    2: "#d32f2f",
-    3: "#ef6c00",
-    4: "#f57c00",
-    5: "#f9a825",
-    6: "#c0ca33",
-    7: "#7cb342",
-    8: "#43a047",
-    9: "#2e7d32",
-    10: "#1b5e20"
+    1: "#d65a45",
+    2: "#d65a45",
+    3: "#e09a2f",
+    4: "#e09a2f",
+    5: "#c4b83a",
+    6: "#c4b83a",
+    7: "#2f9e8f",
+    8: "#2f9e8f",
+    9: "#0a6b66",
+    10: "#0a6b66"
   };
-  var GRAY = "#6b7280";
+  var GRAY = "#6b7c78";
 
   window.pondRatingMode = "data";
   window.pondRatingProp = "rating_class";
@@ -4833,7 +5067,7 @@ body.pond-filters-open .pond-legend {
     if (lead) {
       lead.textContent = mode === "reviews"
         ? "Цвет и размер — оценка по отзывам (1–10): красный слабее, зелёный лучше. Это не прогноз клёва."
-        : "Цвет и размер поплавка — балл из 10: насколько заполнена карточка. Красный — мало данных, зелёный — карточка полнее. Это не прогноз клёва.";
+        : "Цвет и размер поплавка — балл из 10: факты для выезда и отчёты рыбаков. Красный — мало фактов, зелёный — больше подтверждений. Это не прогноз клёва.";
     }
     if (note) {
       if (mode === "reviews") note.removeAttribute("hidden");
@@ -4858,8 +5092,8 @@ body.pond-filters-open .pond-legend {
       window.kleveConvertPondMarkers(map);
     }
     var sizeFnIcon = window.kleveIconSizeFromRadius;
-    var paidSize = typeof sizeFnIcon === "function" ? sizeFnIcon(radius, 0.07) : 0.45;
-    var paidHaloSize = typeof sizeFnIcon === "function" ? sizeFnIcon(haloRadius, 0.07) : 0.6;
+    var paidSize = typeof sizeFnIcon === "function" ? sizeFnIcon(radius, 0.055) : 0.4;
+    var paidHaloSize = typeof sizeFnIcon === "function" ? sizeFnIcon(haloRadius, 0.055) : 0.52;
     var haloOpacity = prop === "review_score"
       ? ["case", ["<=", ["coalesce", ["to-number", ["get", "review_score"]], 0], 0], 0.08,
           ["interpolate", ["linear"], ["to-number", ["get", "review_score"]], 1, 0.12, 6, 0.18, 10, 0.28]]
@@ -4894,7 +5128,7 @@ body.pond-filters-open .pond-legend {
       var freeC = typeof colorFn === "function" ? colorFn(prop) : "#94a3b8";
       // icon-size как у красных (класс 1 / низкий балл)
       var redRadius = ["interpolate", ["linear"], ["zoom"], 5, 4.6, 8, 6.4, 11, 8.8, 14, 11];
-      var freeSize = typeof sizeFnIcon === "function" ? sizeFnIcon(redRadius, 0.07) : 0.4;
+      var freeSize = (typeof sizeFnIcon === "function" ? sizeFnIcon(redRadius, 0.055) : 0.32) * 1.45;
       var freeHaloSize = freeSize;
       function paintFree(id, isHalo) {
         if (!map.getLayer(id)) return;
@@ -5307,8 +5541,8 @@ body.pond-filters-open .pond-legend {
 
 (function () {
   var CLASS_COLORS = {
-    1: "#c62828", 2: "#d32f2f", 3: "#ef6c00", 4: "#f57c00", 5: "#f9a825",
-    6: "#c0ca33", 7: "#7cb342", 8: "#43a047", 9: "#2e7d32", 10: "#1b5e20"
+    1: "#d65a45", 2: "#d65a45", 3: "#e09a2f", 4: "#e09a2f", 5: "#c4b83a",
+    6: "#c4b83a", 7: "#2f9e8f", 8: "#2f9e8f", 9: "#0a6b66", 10: "#0a6b66"
   };
   var userLoc = null;
   var selectedPond = null;
@@ -5782,12 +6016,27 @@ body.pond-filters-open .pond-legend {
       .replace(/&lt;/gi, "<").replace(/&gt;/gi, ">").replace(/&quot;/gi, '"');
     s = s.replace(/https?:\/\/\S+/gi, " ");
     s = s.replace(/\b(?:t\.me|telegram\.me|wa\.me|max\.ru)\/\S*/gi, " ");
+    s = s.replace(/отч[её]ты из канала\s+[^.|\n]*/gi, " ");
+    s = s.replace(/проверенные отч[её]ты\s*tg[^.|\n]*/gi, " ");
+    s = s.replace(/tg-отч[её]тов\s*:\s*\d+/gi, " ");
+    s = s.replace(/@[A-Za-z0-9_]+:\s*отч[её]тов[^\n|]*/gi, " ");
+    s = s.replace(/только сообщения с именем этого пруда\.?/gi, " ");
+    s = s.replace(/\bUGC\.?/gi, " ");
+    s = s.replace(/водоем в рейтинге платников\.?/gi, " ");
+    s = s.replace(/фото,\s*видео водоема/gi, " ");
     s = s.replace(/чат рыбаков кубани[^\n]*/gi, " ");
     s = s.replace(/fishingkubanadygea/gi, " ");
     s = s.replace(/канал в телеграме о рыбалке[^\n]*/gi, " ");
     s = s.replace(/рыбаки майкопа(?:\s+в\s+(?:max|мах|вк|тг))?/gi, " ");
     s = s.replace(/список водоемов майкопа/gi, " ");
     s = s.replace(/\|?\s*tg-(?:отчётов|улов|цены)[^|]*/gi, " ");
+    try {
+      s = s.replace(/\p{Extended_Pictographic}/gu, "");
+    } catch (eEmoji) {
+      s = s.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, "");
+    }
+    s = s.replace(/[\uFE0F\u200D\u20E3]/g, "");
+    s = s.replace(/[\u2300-\u23FF\u2460-\u24FF\u2500-\u27BF\u2B00-\u2BFF]/g, "");
     s = s.replace(/\s+/g, " ").replace(/\s*\|\s*/g, " ").trim();
     s = s.replace(/^[| ·,;—\-]+|[| ·,;—\-]+$/g, "");
     if (s && s.charAt(0) === s.charAt(0).toLowerCase()) {
@@ -5813,6 +6062,14 @@ body.pond-filters-open .pond-legend {
     var body = document.getElementById("pond-detail-body");
     if (!root || !body) return;
     selectedPond = { props: p, lon: lon, lat: lat };
+    if (typeof window.kleveFishingRating === "function") {
+      var rated = window.kleveFishingRating(p);
+      p.rating_score = rated.rating_score;
+      p.rating_class = rated.rating_class;
+      p.rating_color = rated.rating_color;
+      p.rating_label = rated.rating_label;
+      p.rating_reasons = rated.rating_reasons;
+    }
 
     var cls = Number(p.rating_class) || 0;
     var color = CLASS_COLORS[cls] || p.rating_color || "#94a3b8";
@@ -5861,13 +6118,32 @@ body.pond-filters-open .pond-legend {
       + '<button type="button" class="pond-link pond-link--route" id="pond-route-btn">'
       + routeLabel + "</button></div>";
 
+    var channels = window.KLEVO_CHANNELS || {};
+    var tgChannel = channels.telegram || "https://t.me/klevo_rybalka";
+    var maxChannel = channels.max
+      || "https://max.ru/join/dy6aHaNPAnhYeUtR4Y8Xpr17MIOBf5M19A6Qw7Lq_Xs";
+    html += '<div class="pond-channels">'
+      + '<p class="pond-channels__lead">Канал Клево — поиск мест ловли</p>'
+      + '<div class="pond-channels__row">'
+      + '<a class="pond-channel pond-channel--tg" href="' + esc(tgChannel)
+      + '" target="_blank" rel="noopener">Telegram</a>'
+      + '<a class="pond-channel pond-channel--max" href="' + esc(maxChannel)
+      + '" target="_blank" rel="noopener">Max</a>'
+      + "</div></div>";
+
     var scorePct = Math.max(0, Math.min(100, scoreNum * 10));
-    html += '<div class="pond-detail__score"><div>Насколько заполнена карточка: <b>' + esc(scoreText)
+    html += '<div class="pond-detail__score"><div>Рейтинг для рыбалки: <b>' + esc(scoreText)
       + "</b> из 10"
-      + (p.tg_mentions ? (" · упоминаний в источниках: " + esc(p.tg_mentions)) : "")
       + '</div><div class="pond-detail__meter" aria-hidden="true"><span style="width:'
-      + scorePct + '%"></span></div>'
-      + '<p class="pond-detail__hint">Балл из 10 — насколько заполнена карточка. Цвет поплавка — тот же балл по шкале красный → зелёный, не прогноз клёва.</p>'
+      + scorePct + '%"></span></div>';
+    if (p.rating_reasons) {
+      html += '<div class="pond-detail__reasons">';
+      String(p.rating_reasons).split(" · ").forEach(function (bit) {
+        if (bit) html += '<span class="pond-reason">' + esc(bit) + "</span>";
+      });
+      html += "</div>";
+    }
+    html += '<p class="pond-detail__hint">Балл из 10 — факты для выезда и отчёты рыбаков. Цвет поплавка — тот же балл, не прогноз клёва.</p>'
       + "</div>";
 
     var revScore = Number(p.review_score) || 0;
@@ -5880,7 +6156,7 @@ body.pond-filters-open .pond-legend {
         + (p.reports_count ? (" · отчётов с названием места: " + esc(p.reports_count)) : "")
         + '</div><div class="pond-detail__meter" aria-hidden="true"><span style="width:'
         + revPct + "%;background:" + revColor + '"></span></div>';
-      if (p.reports_analytics) {
+      if (p.reports_analytics && !/отч[её]т|UGC|TG-/i.test(p.reports_analytics)) {
         html += '<p class="pond-detail__analytics">' + esc(p.reports_analytics) + "</p>";
       }
       html += '<div class="pond-detail__grid" style="margin-top:10px">';
@@ -5888,16 +6164,6 @@ body.pond-filters-open .pond-legend {
       if (p.reports_catch_max) html += kv("Самый крупный в отчётах", esc(p.reports_catch_max + " кг"));
       if (p.reports_top_fish) html += kv("Чаще всего пишут про", esc(p.reports_top_fish));
       html += "</div>";
-      var srcName = p.reports_source || "Telegram";
-      var srcUrl = p.reports_source_url || "";
-      html += '<p class="pond-detail__source">Отчёты из канала';
-      if (isPublicHttp(srcUrl)) {
-        html += ' <a href="' + esc(srcUrl) + '" target="_blank" rel="noopener">'
-          + esc(srcName) + "</a>";
-      } else {
-        html += " " + esc(srcName);
-      }
-      html += "</p>";
       html += "</div>";
     }
 
@@ -5931,7 +6197,9 @@ body.pond-filters-open .pond-legend {
 
     var shareUrl = pondShareUrl(p.object_id);
     var shareText = (p.name || "Место") + " — Клево";
-    html += '<div class="pond-share-row" aria-label="Поделиться местом">';
+    html += '<div class="pond-share">';
+    html += '<p class="pond-share__lead">Поделиться ссылкой на пруд в</p>';
+    html += '<div class="pond-share-row" role="group" aria-label="Поделиться ссылкой на пруд">';
     html += '<a class="pond-share-btn pond-share-btn--tg" target="_blank" rel="noopener" href="'
       + esc("https://t.me/share/url?url=" + encodeURIComponent(shareUrl)
         + "&text=" + encodeURIComponent(shareText))
@@ -5950,15 +6218,10 @@ body.pond-filters-open .pond-legend {
       + '">'
       + '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A9.9 9.9 0 1 0 12 2zm5.7 14.1c-.2.7-1.3 1.2-2.1 1.4-.5.1-1.2.2-3.5-.7-2.9-1.2-4.8-4.2-4.9-4.4-.2-.2-1.3-1.7-1.3-3.3 0-1.5.8-2.3 1.1-2.6.3-.3.6-.4.9-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.3 0 .5-.2.7l-.4.5c-.2.2-.4.4-.2.7.2.4.9 1.5 1.9 2.4 1.3 1.1 2.4 1.5 2.7 1.6.4.2.6.1.8-.1l.7-.8c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.8-.1 1.5z"/></svg>'
       + "WhatsApp</a>";
-    html += "</div>";
+    html += "</div></div>";
 
     html += '<div class="pond-detail__section"><h3>Связь и дорога</h3><div class="pond-links">';
     var hasChat = false;
-    if (isPublicHttp(p.telegram)) {
-      hasChat = true;
-      html += '<a class="pond-link pond-link--tg" href="' + esc(p.telegram.trim())
-        + '" target="_blank" rel="noopener">Чат в Telegram</a>';
-    }
     if (isPublicHttp(p.max_chat)) {
       hasChat = true;
       html += '<a class="pond-link pond-link--max" href="' + esc(p.max_chat.trim())
@@ -6005,6 +6268,10 @@ body.pond-filters-open .pond-legend {
 
     html += "</div>";
     body.innerHTML = html;
+    var sheet = root.querySelector(".pond-detail__sheet");
+    if (sheet) sheet.scrollTop = 0;
+    body.scrollTop = 0;
+    root.scrollTop = 0;
     root.classList.add("is-open");
     root.setAttribute("aria-hidden", "false");
     document.body.classList.add("pond-detail-open");
@@ -6023,7 +6290,11 @@ body.pond-filters-open .pond-legend {
     } catch (e) {}
 
     var sheet = root.querySelector(".pond-detail__sheet");
-    if (sheet && typeof sheet.focus === "function") sheet.focus();
+    if (sheet) {
+      sheet.scrollTop = 0;
+      if (typeof sheet.focus === "function") sheet.focus();
+      requestAnimationFrame(function () { sheet.scrollTop = 0; });
+    }
 
     var routeBtn = document.getElementById("pond-route-btn");
     if (routeBtn) {
@@ -6139,6 +6410,11 @@ body.pond-filters-open .pond-legend {
   function closeDetail() {
     var root = document.getElementById("pond-detail");
     if (!root) return;
+    var sheet = root.querySelector(".pond-detail__sheet");
+    if (sheet) sheet.scrollTop = 0;
+    var body = document.getElementById("pond-detail-body");
+    if (body) body.scrollTop = 0;
+    root.scrollTop = 0;
     root.classList.remove("is-open");
     root.setAttribute("aria-hidden", "true");
     document.body.classList.remove("pond-detail-open");
@@ -6424,15 +6700,15 @@ body.pond-filters-open .pond-legend {
 
 (function () {
   window.pondProgressiveZoom = true;
-  var FREE_FROM_ZOOM = 8;
+  var FREE_FROM_ZOOM = 7;
   var CIRCLE_IDS = ["ponds-halo", "ponds-layer"];
   var FREE_IDS = ["ponds-free", "ponds-free-halo"];
   var lastBucket = null;
 
   function minClassForZoom(z) {
-    if (z < 7) return 7;
-    if (z < 9) return 5;
-    if (z < 11) return 3;
+    if (z < 7) return 5;
+    if (z < 9) return 4;
+    if (z < 11) return 2;
     return null;
   }
 
@@ -6492,14 +6768,14 @@ body.pond-filters-open .pond-legend {
     var hint = document.getElementById("pond-filter-hint");
     var zoomNote = document.getElementById("pond-legend-zoom");
     var minCls = minClassForZoom(z);
-    var mode = window.pondRatingMode === "reviews" ? "отзывам рыбаков" : "заполненности карточки";
+    var mode = window.pondRatingMode === "reviews" ? "отзывам рыбаков" : "рейтингу для рыбалки";
     var text;
     if (userPickedRating()) {
       text = "Фильтр включён вручную — масштаб список не режет";
     } else if (minCls == null) {
       text = "Крупный масштаб: видны все места · значки по " + mode;
     } else {
-      text = "Издалека сильнее заполненные места. Приблизьте — появятся остальные"
+      text = "Издалека места с более сильным рейтингом для рыбалки. Приблизьте — появятся остальные"
         + (z < FREE_FROM_ZOOM ? " · бесплатные берега — ближе" : " · бесплатные берега видны");
     }
     if (hint) {
@@ -6516,7 +6792,7 @@ body.pond-filters-open .pond-legend {
     var p = document.createElement("p");
     p.className = "pond-legend__zoom";
     p.id = "pond-legend-zoom";
-    p.textContent = "Издалека — места с более полной карточкой или отзывами. Приблизьте — появятся остальные. Бесплатные берега видны со среднего масштаба.";
+    p.textContent = "Издалека — места с более сильным рейтингом для рыбалки. Приблизьте — появятся остальные. Бесплатные берега видны со среднего масштаба.";
     var body = document.getElementById("pond-legend-body") || root;
     body.appendChild(p);
   }

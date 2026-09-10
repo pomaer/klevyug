@@ -73,8 +73,8 @@
           <span class="hero__dot hero__dot--best"></span>
         </div>
         <div class="hero__ends" aria-hidden="true">
-          <span>мало данных</span>
-          <span>карточка полнее</span>
+          <span>мало фактов</span>
+          <span>больше подтверждений</span>
         </div>
         <div class="hero__actions">
           <a class="btn btn--primary btn--lg" href="map.html">Открыть карту</a>
@@ -123,31 +123,36 @@
     <section class="section" aria-labelledby="icons-title">
       <h2 id="icons-title" class="section__title">Как читать значки</h2>
       <p class="section__lead">
-        На карте точки — цветные поплавки. Цвет — балл из 10: насколько заполнена карточка.
+        На карте точки — цветные поплавки. Цвет — балл из 10: факты для выезда и отчёты рыбаков.
         Это не прогноз клёва.
       </p>
       <div class="legend-row">
         <div class="legend-item">
           <span class="fish-ico fish-ico--lg" aria-hidden="true">
             <svg viewBox="0 0 24 32" fill="none">
-              <rect x="10.2" y="2.5" width="3.6" height="12" rx="1.8" fill="#2e7d32" stroke="#163532" stroke-width="1.2"/>
-              <rect x="7.5" y="12.5" width="9" height="11" rx="4.5" fill="#2e7d32"/>
-              <circle cx="12" cy="26" r="1.6" fill="#e8d4a0"/>
+              <ellipse cx="12" cy="18" rx="8" ry="9" fill="#fff" opacity="0.65"/>
+              <rect x="10" y="2" width="4" height="12" rx="2" fill="#0a6b66" stroke="#042f2c" stroke-width="1.2"/>
+              <rect x="6.5" y="10" width="11" height="15" rx="5.5" fill="#0a6b66" stroke="#042f2c" stroke-width="1.4"/>
+              <circle cx="12" cy="2" r="2.2" fill="#f7fbfa" stroke="#042f2c" stroke-width="1.1"/>
+              <circle cx="12" cy="27.5" r="2.4" fill="#f0e2b8" stroke="#042f2c" stroke-width="1.1"/>
             </svg>
           </span>
           <div>
             <h3>Крупный поплавок</h3>
             <p>
-              Платный или спортивный пруд. Зеленее и крупнее — карточка заполнена лучше.
-              Краснее и мельче — данных мало. В карточке тот же балл пишется из 10.
+              Платный или спортивный пруд. Зеленее — больше фактов и отчётов для выезда.
+              Краснее — мало фактов. В карточке тот же балл пишется из 10.
             </p>
           </div>
         </div>
         <div class="legend-item">
           <span class="fish-ico fish-ico--lg" aria-hidden="true">
             <svg viewBox="0 0 24 32" fill="none">
-              <rect x="10.5" y="4" width="3" height="9" rx="1.5" fill="#6b7280" stroke="#4b5563" stroke-width="1.05"/>
-              <rect x="8.5" y="11.5" width="7" height="8" rx="3.5" fill="#6b7280"/>
+              <ellipse cx="12" cy="18" rx="7" ry="8" fill="#fff" opacity="0.75"/>
+              <rect x="10.4" y="4" width="3.2" height="10" rx="1.6" fill="#6b7c78" stroke="#042f2c" stroke-width="1"/>
+              <rect x="7.5" y="11" width="9" height="13" rx="4.5" fill="#f7fbfa" stroke="#6b7c78" stroke-width="2"/>
+              <line x1="12" y1="14" x2="12" y2="21" stroke="#6b7c78" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="12" cy="4" r="1.9" fill="#fff" stroke="#042f2c" stroke-width="1"/>
             </svg>
           </span>
           <div>
@@ -169,7 +174,7 @@
           <i class="legend-dot legend-dot--free legend-dot--mid"></i>
           <i class="legend-dot legend-dot--free legend-dot--low"></i>
         </span>
-        <span class="legend-swatch__hint">крупный = платно · мелкий = бесплатно · цвет = балл из 10</span>
+        <span class="legend-swatch__hint">крупный = платно · мелкий = бесплатно · цвет = рейтинг для рыбалки</span>
       </div>
     </section>
 
@@ -198,14 +203,15 @@
           <article class="step">
             <h3>Карточка места</h3>
             <p>
-              Нажмите на поплавок: цена, рыба, телефон, сайт, оценка по отзывам,
-              цитаты из Telegram, кнопки «поделиться» и маршрут в Яндекс.Картах.
+              Нажмите на поплавок: рейтинг для рыбалки из 10, цена, рыба, телефон,
+              сайт, отчёты из Telegram, кнопки «поделиться» и маршрут в Яндекс.Картах.
             </p>
           </article>
           <article class="step">
             <h3>Рейтинг и локация</h3>
             <p>
-              Внизу слева переключите «по данным карточки» / «по отзывам рыбаков».
+              Внизу слева откройте «Рейтинг водоёмов» и переключите
+              «для рыбалки» / «по отзывам рыбаков».
               Для маршрута разрешите GPS или нажмите «Указать на карте» свою точку старта.
             </p>
           </article>
@@ -234,11 +240,11 @@
             Друг откроет сразу нужное место.
           </p>
         </div>
-        <div class="keep__item">
+          <div class="keep__item">
           <h3>Режим отзывов</h3>
           <p>
-            Переключите легенду на «по отзывам» — увидите, где уже есть проверенные
-            отчёты рыбаков, а не только карточка каталога.
+            Переключите легенду на «по отзывам» — на поплавках останется только
+            оценка из отчётов. Режим «для рыбалки» снова покажет полный балл.
           </p>
         </div>
       </div>
@@ -260,10 +266,11 @@
             </p>
           </details>
           <details>
-            <summary>Рейтинг гарантирует клёв?</summary>
+            <summary>Что значит рейтинг для рыбалки?</summary>
             <p>
-              Нет. Балл из 10 — насколько заполнена карточка. Цвет поплавка — тот же балл
-              по шкале красный → зелёный, не прогноз клёва. Перед выездом уточняйте условия.
+              Балл из 10 — насколько место собрано для выезда: факты карточки
+              (тип, рыба, цена, контакты) плюс отчёты рыбаков. Это не прогноз клёва.
+              Перед выездом уточняйте условия.
             </p>
           </details>
           <details>
@@ -285,6 +292,12 @@
         <a class="btn btn--primary btn--lg" href="map.html">Открыть карту</a>
         <a class="btn btn--ghost btn--lg" href="#how-to">Ещё раз как пользоваться</a>
       </div>
+      <p class="site-channels">
+        Канал Клево — поиск мест ловли:
+        <a href="https://t.me/klevo_rybalka" target="_blank" rel="noopener">Telegram</a>
+        ·
+        <a href="https://max.ru/join/dy6aHaNPAnhYeUtR4Y8Xpr17MIOBf5M19A6Qw7Lq_Xs" target="_blank" rel="noopener">Max</a>
+      </p>
     </section>
   </main>
 
@@ -302,6 +315,10 @@
         <a href="about.html">Как устроено</a>
         ·
         <a href="data.html">О данных</a>
+        ·
+        <a href="https://t.me/klevo_rybalka" target="_blank" rel="noopener">Telegram</a>
+        ·
+        <a href="https://max.ru/join/dy6aHaNPAnhYeUtR4Y8Xpr17MIOBf5M19A6Qw7Lq_Xs" target="_blank" rel="noopener">Max</a>
       </div>
     </div>
   </footer>

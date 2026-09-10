@@ -13,8 +13,8 @@
   --line: rgba(4, 47, 44, 0.1);
   --shadow: 0 16px 40px rgba(4, 47, 44, 0.14);
   --shadow-tight: 0 12px 32px rgba(4, 47, 44, 0.14);
-  --bad: #c62828;
-  --best: #2e7d32;
+  --bad: #d65a45;
+  --best: #0a6b66;
   --font: "Sora", "Segoe UI", system-ui, sans-serif;
   --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
   --radius: 18px;
