@@ -1517,12 +1517,14 @@ body.pond-detail-open .maplibregl-popup {
   border: 0;
   border-radius: 999px;
   padding: 7px 11px;
+  min-height: 36px;
   background: var(--pond-teal);
   color: #fff;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   font-family: var(--pond-font);
+  touch-action: manipulation;
 }
 .pond-geo-status.is-pick button:not(.pond-geo-fab) {
   background: #2563eb;
@@ -1674,6 +1676,15 @@ body.pond-detail-open .maplibregl-popup {
     bottom: max(220px, calc(208px + env(safe-area-inset-bottom, 0px)));
     z-index: 9;
   }
+  .pond-geo-status button:not(.pond-geo-fab) {
+    min-height: 44px;
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+  #pond-geo-collapse {
+    width: 100%;
+    flex: 1 1 100%;
+  }
   /* Карточка пруда — нижняя половина экрана */
   .pond-detail.is-open::before {
     background: rgba(4, 47, 44, 0.18);
@@ -1765,13 +1776,16 @@ body.pond-detail-open .maplibregl-popup {
   justify-content: space-between;
   gap: 10px;
   margin: 0 0 10px;
-  padding: 0;
+  padding: 4px 2px;
   border: 0;
   background: transparent;
   cursor: pointer;
   font: inherit;
   color: inherit;
   text-align: left;
+  min-height: 44px;
+  flex: 0 0 auto;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(10, 107, 102, 0.12);
 }
 .pond-legend__toggle:focus-visible {
@@ -1797,9 +1811,34 @@ body.pond-detail-open .maplibregl-popup {
   margin-bottom: 0;
 }
 .pond-legend.is-collapsed .pond-legend__body,
-.pond-legend.is-collapsed .pond-legend__zoom {
+.pond-legend.is-collapsed .pond-legend__zoom,
+.pond-legend.is-collapsed .pond-legend__done {
   display: none;
 }
+.pond-legend__done {
+  display: none;
+  width: 100%;
+  margin: 8px 0 0;
+  border: 0;
+  border-radius: 14px;
+  min-height: 44px;
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  background: #0a6b66;
+  color: #fff;
+  flex: 0 0 auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.pond-legend__done:focus-visible {
+  outline: 3px solid #12a594;
+  outline-offset: 2px;
+}
+.pond-legend__done:active { opacity: 0.85; }
 body.pond-filters-open .pond-legend {
   opacity: 0;
   pointer-events: none;
@@ -1979,11 +2018,33 @@ body.pond-filters-open .pond-legend {
     display: none;
   }
   .pond-legend:not(.is-collapsed) {
+    display: flex;
+    flex-direction: column;
     width: min(300px, calc(100vw - 24px));
     max-width: calc(100vw - 24px);
-    max-height: min(48dvh, 380px);
+    max-height: min(70dvh, 560px);
+    overflow: hidden;
+    overscroll-behavior: contain;
+    padding: 10px 12px 12px;
+  }
+  .pond-legend:not(.is-collapsed) .pond-legend__toggle {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 8px;
+    padding: 2px 2px 8px;
+    background: rgba(255, 255, 255, 0.96);
+  }
+  .pond-legend:not(.is-collapsed) .pond-legend__body {
+    flex: 1 1 auto;
+    min-height: 0;
     overflow: auto;
     overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .pond-legend:not(.is-collapsed) .pond-legend__done {
+    display: block;
+    margin: 8px 0 0;
   }
   .pond-legend__lead { font-size: 12px; }
   .pond-legend__mode { padding: 10px 11px; font-size: 13px; min-height: 44px; }
@@ -2275,6 +2336,37 @@ body.pond-filters-open .pond-legend {
   outline-offset: 2px;
 }
 .pond-mf__reset:active { opacity: 0.7; }
+.pond-mf__foot {
+  flex: 0 0 auto;
+  padding: 8px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--pond-line);
+  background: rgba(255, 255, 255, 0.96);
+}
+.llmaps-dashboard.collapsed .pond-mf__foot {
+  display: none;
+}
+.pond-mf__done {
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  min-height: 44px;
+  padding: 11px 14px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  background: var(--pond-teal);
+  color: #fff;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.pond-mf__done:hover { background: #0c7c76; }
+.pond-mf__done:focus-visible {
+  outline: 3px solid var(--pond-teal-bright);
+  outline-offset: 2px;
+}
+.pond-mf__done:active { opacity: 0.85; }
 
 @media (max-width: 768px) {
   #llmaps-dashboard-pond-filters.llmaps-dashboard,
@@ -2297,6 +2389,20 @@ body.pond-filters-open .pond-legend {
   }
   .pond-mf__list {
     max-height: min(28dvh, 200px);
+  }
+  #llmaps-dashboard-pond-filters.llmaps-dashboard:not(.collapsed),
+  .llmaps-dashboard[data-dashboard-id="pond-filters"]:not(.collapsed) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .llmaps-dashboard-toggle {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .llmaps-feature-search-item,
+  .llmaps-feature-search-empty {
+    min-height: 44px;
+    padding: 12px 14px;
   }
   .llmaps-feature-search {
     top: max(10px, env(safe-area-inset-top, 0px)) !important;
@@ -2422,6 +2528,7 @@ body.pond-filters-open .pond-legend {
     </div>
   </div>
   </div>
+  <button type="button" class="pond-legend__done" id="pond-legend-done">Готово</button>
 </div>
 
     <script id="llmaps-config" type="application/json">
@@ -5522,6 +5629,15 @@ body.pond-filters-open .pond-legend {
         resetFilters();
       });
     }
+    var doneBtn = document.getElementById("pond-filter-done");
+    if (doneBtn && !doneBtn.dataset.wired) {
+      doneBtn.dataset.wired = "1";
+      doneBtn.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        if (typeof window.applyPondFilters === "function") window.applyPondFilters();
+        if (typeof window.pondCollapseFilters === "function") window.pondCollapseFilters();
+      });
+    }
   }
 
   window.applyPondFilters = function () { applyFilters(readState()); };
@@ -5733,6 +5849,7 @@ body.pond-filters-open .pond-legend {
       '<div class="pond-geo-actions">' +
       '<button type="button" id="pond-geo-pick">Указать на карте</button>' +
       '<button type="button" id="pond-geo-retry">Повторить GPS</button>' +
+      '<button type="button" id="pond-geo-collapse">Свернуть</button>' +
       "</div>",
       false
     );
@@ -5916,6 +6033,7 @@ body.pond-filters-open .pond-legend {
       '<div class="pond-geo-actions">' +
       '<button type="button" id="pond-geo-retry">Определить по GPS</button>' +
       '<button type="button" id="pond-geo-pick">Указать на карте</button>' +
+      '<button type="button" id="pond-geo-collapse">Свернуть</button>' +
       "</div>",
       false
     );
@@ -6606,11 +6724,48 @@ body.pond-filters-open .pond-legend {
     syncFiltersLayout();
   }
 
+  function collapseFiltersPanel() {
+    var el = dashboardEl();
+    if (!el) return;
+    if (typeof window.applyPondFilters === "function") window.applyPondFilters();
+    if (typeof window.llmapsDashboardSetCollapsed === "function") {
+      window.llmapsDashboardSetCollapsed("pond-filters", true);
+    } else {
+      el.classList.add("collapsed");
+    }
+    document.body.classList.remove("pond-filters-open");
+    syncFiltersOpenClass();
+  }
+  window.pondCollapseFilters = collapseFiltersPanel;
+
+  function ensureFilterDone() {
+    var el = dashboardEl();
+    if (!el || el.querySelector("#pond-filter-done")) return;
+    var foot = document.createElement("div");
+    foot.className = "pond-mf__foot";
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.id = "pond-filter-done";
+    btn.className = "pond-mf__done";
+    btn.dataset.wired = "1";
+    btn.textContent = "Готово";
+    btn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      el.dataset.pondUserTouched = "1";
+      collapseFiltersPanel();
+    });
+    foot.appendChild(btn);
+    el.appendChild(foot);
+  }
+
   function collapseFiltersOnOpen() {
     var el = dashboardEl();
     if (!el) return false;
-    el.classList.add("collapsed");
-    document.body.classList.remove("pond-filters-open");
+    if (!el.dataset.pondAutoCollapsed) {
+      el.dataset.pondAutoCollapsed = "1";
+      el.classList.add("collapsed");
+      document.body.classList.remove("pond-filters-open");
+    }
     var toggle = el.querySelector(".llmaps-dashboard-toggle");
     if (toggle) {
       var collapsed = el.classList.contains("collapsed");
@@ -6622,6 +6777,7 @@ body.pond-filters-open .pond-legend {
       obs.observe(el, { attributes: true, attributeFilter: ["class"] });
       if (toggle) {
         toggle.addEventListener("click", function () {
+          el.dataset.pondUserTouched = "1";
           setTimeout(syncFiltersOpenClass, 0);
         });
       }
@@ -6634,6 +6790,7 @@ body.pond-filters-open .pond-legend {
         }
       }
     }
+    ensureFilterDone();
     syncFiltersLayout();
     return true;
   }
@@ -6643,23 +6800,28 @@ body.pond-filters-open .pond-legend {
     var btn = document.getElementById("pond-legend-toggle");
     if (!root || !btn || btn.dataset.ready) return;
     btn.dataset.ready = "1";
+    var done = document.getElementById("pond-legend-done");
     var mq = window.matchMedia("(max-width: 768px)");
+    function setOpen(open) {
+      root.classList.toggle("is-collapsed", !open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) root.scrollTop = 0;
+    }
     function apply() {
       if (root.dataset.userToggled) return;
-      if (mq.matches) {
-        root.classList.add("is-collapsed");
-        btn.setAttribute("aria-expanded", "false");
-      } else {
-        root.classList.remove("is-collapsed");
-        btn.setAttribute("aria-expanded", "true");
-      }
+      setOpen(!mq.matches);
     }
     btn.addEventListener("click", function () {
       root.dataset.userToggled = "1";
-      root.classList.toggle("is-collapsed");
-      var open = !root.classList.contains("is-collapsed");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      setOpen(root.classList.contains("is-collapsed"));
     });
+    if (done && !done.dataset.ready) {
+      done.dataset.ready = "1";
+      done.addEventListener("click", function () {
+        root.dataset.userToggled = "1";
+        setOpen(false);
+      });
+    }
     apply();
     if (mq.addEventListener) mq.addEventListener("change", apply);
     else if (mq.addListener) mq.addListener(apply);
@@ -6765,7 +6927,6 @@ body.pond-filters-open .pond-legend {
   }
 
   function updateZoomHint(z) {
-    var hint = document.getElementById("pond-filter-hint");
     var zoomNote = document.getElementById("pond-legend-zoom");
     var minCls = minClassForZoom(z);
     var mode = window.pondRatingMode === "reviews" ? "отзывам рыбаков" : "рейтингу для рыбалки";
@@ -6777,11 +6938,6 @@ body.pond-filters-open .pond-legend {
     } else {
       text = "Издалека места с более сильным рейтингом для рыбалки. Приблизьте — появятся остальные"
         + (z < FREE_FROM_ZOOM ? " · бесплатные берега — ближе" : " · бесплатные берега видны");
-    }
-    if (hint) {
-      var root = document.getElementById("pond-multi-filters");
-      var n = root ? root.querySelectorAll("input[type=checkbox]:checked").length : 0;
-      if (!n) hint.textContent = text;
     }
     if (zoomNote) zoomNote.textContent = text;
   }
