@@ -1450,9 +1450,10 @@ body.pond-detail-open .maplibregl-popup {
 
 .pond-geo-status {
   position: fixed;
-  right: max(12px, env(safe-area-inset-right, 0px));
-  left: auto;
-  bottom: max(168px, calc(156px + env(safe-area-inset-bottom, 0px)));
+  left: max(12px, env(safe-area-inset-left, 0px));
+  right: auto;
+  top: max(168px, calc(156px + env(safe-area-inset-top, 0px)));
+  bottom: auto;
   z-index: 25;
   max-width: min(240px, calc(100vw - 28px));
   padding: 12px 14px;
@@ -1479,7 +1480,10 @@ body.pond-detail-open .maplibregl-popup {
   border: 0;
   box-shadow: none;
   backdrop-filter: none;
-  bottom: max(168px, calc(156px + env(safe-area-inset-bottom, 0px)));
+  left: max(12px, env(safe-area-inset-left, 0px));
+  right: auto;
+  top: max(168px, calc(156px + env(safe-area-inset-top, 0px)));
+  bottom: auto;
 }
 .pond-geo-fab {
   border: 0;
@@ -1610,11 +1614,48 @@ body.pond-detail-open .maplibregl-popup {
 }
 .maplibregl-ctrl-bottom-right {
   right: max(12px, env(safe-area-inset-right, 0px)) !important;
-  bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important;
+  bottom: max(34px, calc(26px + env(safe-area-inset-bottom, 0px))) !important;
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
   gap: 8px;
+}
+.maplibregl-ctrl-bottom-left {
+  left: max(8px, env(safe-area-inset-left, 0px)) !important;
+  right: max(76px, calc(68px + env(safe-area-inset-right, 0px))) !important;
+  bottom: 0 !important;
+  top: auto !important;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  pointer-events: none;
+}
+.maplibregl-ctrl-bottom-left .maplibregl-ctrl {
+  pointer-events: auto;
+}
+.maplibregl-ctrl-attrib {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #4a6461 !important;
+  font-size: 10.5px !important;
+  line-height: 1.3 !important;
+  font-weight: 500;
+  padding: 4px 8px calc(4px + env(safe-area-inset-bottom, 0px)) !important;
+  margin: 0 !important;
+  border-radius: 8px 8px 0 0 !important;
+  box-shadow: none !important;
+  max-width: 100%;
+  text-wrap: pretty;
+}
+.maplibregl-ctrl-attrib a {
+  color: #0a6b66 !important;
+}
+.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-inner {
+  display: inline !important;
+}
+.maplibregl-ctrl-attrib-button {
+  display: none !important;
 }
 
 @media (max-width: 1100px) {
@@ -1656,24 +1697,23 @@ body.pond-detail-open .maplibregl-popup {
     font-size: 16px !important;
     padding: 11px 12px !important;
   }
-  /* Гео-статус при поиске GPS — под поиском и чипом фильтров */
+  /* «Моё место» — слева под фильтрами */
   .pond-geo-status:not(.is-collapsed) {
     left: max(10px, env(safe-area-inset-left, 0px));
-    right: max(10px, env(safe-area-inset-right, 0px));
+    right: auto;
     transform: none;
-    top: max(140px, calc(132px + env(safe-area-inset-top, 0px)));
+    top: max(114px, calc(106px + env(safe-area-inset-top, 0px)));
     bottom: auto;
-    max-width: none;
+    max-width: min(280px, calc(100vw - 24px));
     text-align: left;
     z-index: 7;
   }
-  /* «Моё место» — над зумом, зум и полный экран в правом нижнем углу */
   .pond-geo-status.is-collapsed {
     transform: none;
-    left: auto;
-    right: max(12px, env(safe-area-inset-right, 0px));
-    top: auto;
-    bottom: max(220px, calc(208px + env(safe-area-inset-bottom, 0px)));
+    left: max(10px, env(safe-area-inset-left, 0px));
+    right: auto;
+    top: max(114px, calc(106px + env(safe-area-inset-top, 0px)));
+    bottom: auto;
     z-index: 9;
   }
   .pond-geo-status button:not(.pond-geo-fab) {
@@ -1729,12 +1769,16 @@ body.pond-detail-open .maplibregl-popup {
     left: max(8px, env(safe-area-inset-left, 0px)) !important;
   }
   .maplibregl-ctrl-bottom-right {
-    bottom: max(64px, calc(56px + env(safe-area-inset-bottom, 0px))) !important;
+    bottom: max(36px, calc(28px + env(safe-area-inset-bottom, 0px))) !important;
     right: max(10px, env(safe-area-inset-right, 0px)) !important;
   }
   .maplibregl-ctrl-bottom-left {
-    bottom: max(56px, calc(48px + env(safe-area-inset-bottom, 0px))) !important;
     left: max(8px, env(safe-area-inset-left, 0px)) !important;
+    right: max(72px, calc(64px + env(safe-area-inset-right, 0px))) !important;
+    bottom: 0 !important;
+  }
+  .maplibregl-ctrl-scale {
+    display: none !important;
   }
   body.pond-filters-open .pond-geo-status,
   body.pond-filters-open .maplibregl-ctrl-bottom-right {
@@ -1755,10 +1799,11 @@ body.pond-detail-open .maplibregl-popup {
 .pond-legend {
   position: absolute;
   left: max(12px, env(safe-area-inset-left, 0px));
-  bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  bottom: max(40px, calc(32px + env(safe-area-inset-bottom, 0px)));
   z-index: 5;
-  width: min(268px, calc(100vw - 28px));
-  padding: 14px 15px 15px;
+  box-sizing: border-box;
+  width: min(200px, calc(100vw - 28px));
+  padding: 10px 12px 12px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(4, 47, 44, 0.1);
@@ -2004,10 +2049,10 @@ body.pond-filters-open .pond-legend {
   .pond-legend {
     left: max(10px, env(safe-area-inset-left, 0px));
     right: auto;
-    bottom: max(14px, calc(10px + env(safe-area-inset-bottom, 0px)));
+    bottom: max(40px, calc(32px + env(safe-area-inset-bottom, 0px)));
     width: auto;
     max-width: min(200px, calc(100vw - 120px));
-    padding: 10px 12px;
+    padding: 8px 10px;
     z-index: 8;
   }
   .pond-legend.is-collapsed {
@@ -2020,12 +2065,12 @@ body.pond-filters-open .pond-legend {
   .pond-legend:not(.is-collapsed) {
     display: flex;
     flex-direction: column;
-    width: min(300px, calc(100vw - 24px));
-    max-width: calc(100vw - 24px);
-    max-height: min(70dvh, 560px);
+    width: min(200px, calc(100vw - 24px));
+    max-width: min(200px, calc(100vw - 24px));
+    max-height: min(47dvh, 373px);
     overflow: hidden;
     overscroll-behavior: contain;
-    padding: 10px 12px 12px;
+    padding: 8px 10px 10px;
   }
   .pond-legend:not(.is-collapsed) .pond-legend__toggle {
     position: relative;
@@ -2046,8 +2091,10 @@ body.pond-filters-open .pond-legend {
     display: block;
     margin: 8px 0 0;
   }
-  .pond-legend__lead { font-size: 12px; }
-  .pond-legend__mode { padding: 10px 11px; font-size: 13px; min-height: 44px; }
+  .pond-legend__lead { font-size: 11px; line-height: 1.35; }
+  .pond-legend__mode { padding: 8px 10px; font-size: 12.5px; min-height: 40px; }
+  .pond-legend__shapes { margin-top: 10px; padding-top: 8px; gap: 6px; }
+  .pond-legend__done { min-height: 40px; padding: 8px 12px; font-size: 13.5px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pond-legend__mode { transition: none; }
@@ -3129,8 +3176,9 @@ body.pond-filters-open .pond-legend {
         if (typeof maplibregl.AttributionControl === "function") {
           const customAttr = config.custom_attribution || '© LLMaps';
           map.addControl(new maplibregl.AttributionControl({
+            compact: false,
             customAttribution: customAttr
-          }), "bottom-right");
+          }), "bottom-left");
         }
         if (useHash) enableMapHashSync(map);
 
@@ -5728,17 +5776,24 @@ body.pond-filters-open .pond-legend {
 
   function syncGeoAboveControls() {
     var geo = document.getElementById("pond-geo-status");
-    var br = document.querySelector(".maplibregl-ctrl-bottom-right");
     if (!geo) return;
-    if (!geo.classList.contains("is-collapsed") || !br) {
-      geo.style.bottom = "";
-      return;
+    var filters = document.getElementById("llmaps-dashboard-pond-filters")
+      || document.querySelector('.llmaps-dashboard[data-dashboard-id="pond-filters"]');
+    if (!filters) return;
+    var fr = filters.getBoundingClientRect();
+    geo.style.setProperty("left", Math.round(fr.left) + "px", "important");
+    geo.style.setProperty("top", Math.round(fr.bottom + 8) + "px", "important");
+    geo.style.setProperty("right", "auto", "important");
+    geo.style.setProperty("bottom", "auto", "important");
+    if (geo.classList.contains("is-collapsed")) {
+      geo.style.removeProperty("max-width");
+    } else {
+      var w = Math.round(fr.width);
+      if (w < 160) w = 160;
+      geo.style.setProperty("max-width", w + "px", "important");
     }
-    var gap = 10;
-    var fromBottom = Math.round(window.innerHeight - br.getBoundingClientRect().top + gap);
-    if (!isFinite(fromBottom) || fromBottom < 80) fromBottom = 168;
-    geo.style.bottom = fromBottom + "px";
   }
+  window.syncPondGeoChip = syncGeoAboveControls;
 
   window.addEventListener("resize", syncGeoAboveControls);
   if (window.visualViewport) {
@@ -6700,12 +6755,7 @@ body.pond-filters-open .pond-legend {
       if (maxH < 120) maxH = 120;
       el.style.setProperty("max-height", maxH + "px", "important");
     }
-    var geo = document.getElementById("pond-geo-status");
-    if (geo && !geo.classList.contains("is-collapsed") && window.matchMedia("(max-width: 768px)").matches) {
-      var er = el.getBoundingClientRect();
-      geo.style.setProperty("top", Math.round(er.bottom + 8) + "px", "important");
-      geo.style.setProperty("bottom", "auto", "important");
-    }
+    if (typeof window.syncPondGeoChip === "function") window.syncPondGeoChip();
   }
 
   function syncFiltersOpenClass() {
